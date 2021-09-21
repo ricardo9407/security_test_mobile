@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:security_test_mobile/Question/model/question.dart';
 import 'package:security_test_mobile/Question/ui/widget/answersList.dart';
 import 'package:security_test_mobile/Question/ui/widget/header.dart';
 import 'package:security_test_mobile/Widget/header-appbar.dart';
@@ -6,6 +8,7 @@ import 'package:security_test_mobile/Widget/header-appbar.dart';
 class ScreenQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final question = Provider.of<QuestionModel>(context);
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -20,6 +23,7 @@ class ScreenQuestion extends StatelessWidget {
               ),
               FloatingActionButton(
                 onPressed: () {
+                  print(question.getPts);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ScreenQuestion()),

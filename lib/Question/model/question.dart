@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class QuestionModel with ChangeNotifier {
-  late double _pts = 0.0;
-  late String _header =
-      '¿Usted juega vidojuegos de Nintendo, PlayStation y Microsoft?';
-  late double _factor = 0.40;
-  late double _factor2 = 0.1;
+  double _pts;
+  String _header;
+  double _factor;
+  double _factor2;
+
+  QuestionModel(
+    this._pts,
+    this._header,
+    this._factor,
+    this._factor2,
+  );
 
   double get getPts {
     return _pts;

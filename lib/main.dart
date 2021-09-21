@@ -8,8 +8,15 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => QuestionModel()),
-        ChangeNotifierProvider(create: (_) => UserModel()),
+        ChangeNotifierProvider(
+          create: (_) => QuestionModel(
+            0,
+            '¿Pregunta?',
+            0.4,
+            0.25,
+          ),
+        ),
+        ChangeNotifierProvider(create: (_) => UserModel('', '')),
       ],
       child: MyApp(),
     ),
