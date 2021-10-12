@@ -1,51 +1,49 @@
+//@dart=2.9
 import 'package:flutter/material.dart';
 
 class QuestionModel with ChangeNotifier {
-  double _pts;
-  String _header;
-  double _factor;
-  double _factor2;
+  double ptsRespuesta;
+  String header;
+  double factorRespuesta;
 
-  QuestionModel(
-    this._pts,
-    this._header,
-    this._factor,
-    this._factor2,
-  );
+  QuestionModel({
+    this.ptsRespuesta,
+    this.header,
+    this.factorRespuesta,
+  });
 
   double get getPts {
-    return _pts;
+    return ptsRespuesta;
   }
 
   String get getHeader {
-    return _header;
+    return header;
   }
 
-  double get getFactor {
-    return _factor;
+  double get getFactorRespuesta {
+    return factorRespuesta;
   }
 
-  double get getFactor2 {
-    return _factor2;
-  }
-
-  set setPts(double pts) {
-    this._pts = pts;
+  set setPtsRespuesta(double ptsRespuesta) {
+    this.ptsRespuesta = ptsRespuesta;
     notifyListeners();
   }
 
   set setHeader(String header) {
-    this._header = header;
+    this.header = header;
     notifyListeners();
   }
 
-  set setFactor(double factor) {
-    this._factor = factor;
+  set setFactorRespuesta(double factorRespuesta) {
+    this.factorRespuesta = factorRespuesta;
     notifyListeners();
   }
 
-  set setFactor2(double factor2) {
-    this._factor2 = factor2;
-    notifyListeners();
+  factory QuestionModel.fromJson(Map<String, dynamic> json) {
+    return QuestionModel(
+      ptsRespuesta: json['ptsRespuesta'],
+      header: json['header'],
+      factorRespuesta: json['factorRespuesta'],
+    );
   }
 }

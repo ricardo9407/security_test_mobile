@@ -1,3 +1,5 @@
+//@dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:email_validator/email_validator.dart';
@@ -68,6 +70,7 @@ class _Loguin extends State<Loguin> {
                 onPressed: () {
                   user.setUserName = _controllerName.value.text;
                   user.setUserEmail = _controlleremail.value.text;
+                  print(user.getUserEmail);
                   _isValid = EmailValidator.validate(user.getUserEmail);
                   if (user.getUserName.length > 4 && _isValid == true) {
                     Navigator.push(

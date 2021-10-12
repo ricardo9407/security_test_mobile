@@ -1,29 +1,30 @@
+//@dart=2.9
 import 'package:flutter/material.dart';
 
 class UserModel with ChangeNotifier {
-  String _name;
-  String _email;
+  String name;
+  String email;
 
-  UserModel(
-    this._name,
-    this._email,
-  );
+  UserModel({
+    this.name,
+    this.email,
+  });
 
   String get getUserName {
-    return _name;
+    return name;
   }
 
   String get getUserEmail {
-    return _email;
+    return email;
   }
 
   set setUserName(String name) {
-    this._name = name;
+    this.name = name;
     notifyListeners();
   }
 
   set setUserEmail(String email) {
-    this._email = email;
+    this.email = email;
     notifyListeners();
   }
 }
