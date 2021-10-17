@@ -1,8 +1,6 @@
 //@dart=2.9
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:security_test_mobile/Question/model/question.dart';
 
 class AnswersList extends StatefulWidget {
   _AnswersList createState() => _AnswersList();
@@ -12,7 +10,6 @@ class _AnswersList extends State<AnswersList> {
   double character = 0;
   @override
   Widget build(BuildContext context) {
-    final question = Provider.of<QuestionModel>(context);
     return Container(
       padding: EdgeInsets.only(top: 50.0),
       child: Column(

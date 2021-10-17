@@ -70,7 +70,6 @@ class _Loguin extends State<Loguin> {
                 onPressed: () {
                   user.setUserName = _controllerName.value.text;
                   user.setUserEmail = _controlleremail.value.text;
-                  print(user.getUserEmail);
                   _isValid = EmailValidator.validate(user.getUserEmail);
                   if (user.getUserName.length > 4 && _isValid == true) {
                     Navigator.push(

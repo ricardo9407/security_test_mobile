@@ -1,21 +1,19 @@
 //@dart=2.9
 
 import 'package:flutter/material.dart';
-import 'package:security_test_mobile/Question/model/question.dart';
 
 class FocusModel with ChangeNotifier {
   String id;
   String nameFocus;
-  double ptsTotal;
   double factor;
-  QuestionModel preguntas;
+  double ptsTotal;
 
   FocusModel({
+    Key key,
     this.id,
     this.nameFocus,
-    this.ptsTotal,
     this.factor,
-    this.preguntas,
+    this.ptsTotal,
   });
 
   double get getPts {
@@ -30,31 +28,17 @@ class FocusModel with ChangeNotifier {
     return factor;
   }
 
-  QuestionModel get getPreguntas {
-    return preguntas;
-  }
-
   set setPtsTotal(double ptsTotal) {
     this.ptsTotal = ptsTotal;
     notifyListeners();
   }
 
-  set setNameFocus(String nameFocus) {
-    this.nameFocus = nameFocus;
-    notifyListeners();
-  }
-
-  set setFactor(double factor) {
-    this.factor = factor;
-    notifyListeners();
-  }
-
   factory FocusModel.fromJson(Map<String, dynamic> json) {
     return FocusModel(
+      id: json['id'],
       nameFocus: json['nameFocus'],
       ptsTotal: json['ptsTotal'],
       factor: json['factor'],
-      preguntas: QuestionModel.fromJson(json['commune']),
     );
   }
 }

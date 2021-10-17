@@ -2,18 +2,25 @@
 import 'package:flutter/material.dart';
 
 class QuestionModel with ChangeNotifier {
-  double ptsRespuesta;
+  String id;
+  String idFocus;
   String header;
   double factorRespuesta;
 
   QuestionModel({
-    this.ptsRespuesta,
+    Key key,
+    this.id,
+    this.idFocus,
     this.header,
     this.factorRespuesta,
   });
 
-  double get getPts {
-    return ptsRespuesta;
+  String get getId {
+    return id;
+  }
+
+  String get getIdFocus {
+    return idFocus;
   }
 
   String get getHeader {
@@ -24,24 +31,10 @@ class QuestionModel with ChangeNotifier {
     return factorRespuesta;
   }
 
-  set setPtsRespuesta(double ptsRespuesta) {
-    this.ptsRespuesta = ptsRespuesta;
-    notifyListeners();
-  }
-
-  set setHeader(String header) {
-    this.header = header;
-    notifyListeners();
-  }
-
-  set setFactorRespuesta(double factorRespuesta) {
-    this.factorRespuesta = factorRespuesta;
-    notifyListeners();
-  }
-
   factory QuestionModel.fromJson(Map<String, dynamic> json) {
     return QuestionModel(
-      ptsRespuesta: json['ptsRespuesta'],
+      id: json['id'],
+      idFocus: json['idFocus'],
       header: json['header'],
       factorRespuesta: json['factorRespuesta'],
     );
