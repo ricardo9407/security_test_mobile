@@ -1,0 +1,32 @@
+[
+    {
+        "id" : "OCS",
+        "nameFocus" : "Organización, su contexto y seguridad.",
+        "factor" : 0.1,
+        "ptsTotal" : 0
+    },
+    {
+        "id" : "PS",
+        "nameFocus" : "Planificación y soporte.",
+        "factor" : 0.2,
+        "ptsTotal" : 0
+    },
+    {
+        "id" : "EOM",
+        "nameFocus" : "Evaluación de operación y mejora.",
+        "factor" : 0.25,
+        "ptsTotal" : 0
+    },
+    {
+        "id" : "SO",
+        "nameFocus" : "Seguridad y controles.",
+        "factor" : 0.3,
+        "ptsTotal" : 0
+    },
+    {
+        "id" : "GC",
+        "nameFocus" : "Gestión y cumplimiento",
+        "factor" : 0.15,
+        "ptsTotal" : 0
+    }
+]

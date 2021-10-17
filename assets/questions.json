@@ -1,0 +1,362 @@
+[
+    {
+        "id" : "1",
+        "idFocus" : "OCS",
+        "header" : "¿Ingresa o saca información de su dispositivo de trabajo?",
+        "factorRespuesta" : 0.05
+    },
+    {
+        "id" : "2",
+        "idFocus" : "OCS",
+        "header" : "¿Se recibe algún tipo de capacitación sobre ciberseguridad? (boletín, revista, conferencias, etc.)",
+        "factorRespuesta" : 0.05
+    },
+    {
+        "id" : "3",
+        "idFocus" : "OCS",
+        "header" : "¿Ud. o su empresa, contrata servicios de alguna organización externa?",
+        "factorRespuesta" : 0.05
+    },
+    {
+        "id" : "4",
+        "idFocus" : "OCS",
+        "header" : "¿Qué tan frecuente sigue las medidas de seguridad implementadas?",
+        "factorRespuesta" : 0.05
+    },
+    {
+        "id" : "5",
+        "idFocus" : "OCS",
+        "header" : "¿Con qué frecuencia se utiliza Internet, con fines de trabajo?",
+        "factorRespuesta" : 0.05
+    },
+    {
+        "id" : "6",
+        "idFocus" : "OCS",
+        "header" : "¿Sabe identificar amenazas internas y externas que puedan suponer un riesgo para la seguridad de la Información?",
+        "factorRespuesta" : 0.06
+    },
+    {
+        "id" : "7",
+        "idFocus" : "OCS",
+        "header" : "¿Existe un listado de requisitos sobre Seguridad de la Información referente a reglamentos, requisitos legales y requisitos contractuales?",
+        "factorRespuesta" : 0.06
+    },
+    {
+        "id" : "8",
+        "idFocus" : "OCS",
+        "header" : "¿Se ha determinado el alcance y objetivos del SGS y se conserva información documentada?",
+        "factorRespuesta" : 0.225
+    },
+    {
+        "id" : "9",
+        "idFocus" : "OCS",
+        "header" : "¿Existe un proceso planificado y verificable de revisión de las políticas de Seguridad de la información?",
+        "factorRespuesta" : 0.06
+    },
+    {
+        "id" : "10",
+        "idFocus" : "OCS",
+        "header" : "¿Sabe cuáles son sus responsabilidades sobre la seguridad de la información en las distintas tareas o actividades?",
+        "factorRespuesta" : 0.06
+    },
+    {
+        "id" : "11",
+        "idFocus" : "OCS",
+        "header" : "¿Aplica los criterios de Seguridad para los accesos de teletrabajo?",
+        "factorRespuesta" : 0.06
+    },
+    {
+        "id" : "12",
+        "idFocus" : "OCS",
+        "header" : "¿Tiene conocimiento sobre las política de Seguridad de la información para proveedores que acceden a activos de la información de la empresa?",
+        "factorRespuesta" : 0.225
+    },
+    {
+        "id" : "13",
+        "idFocus" : "PS",
+        "header" : "¿Ud. o su empresa, invierte en la seguridad de sus dispositivos?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "14",
+        "idFocus" : "PS",
+        "header" : "¿Ud. o su empresa, revisa la seguridad de su red de Internet?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "15",
+        "idFocus" : "PS",
+        "header" : "¿Tiene conocimiento de los objetivos de la Seguridad de la Información acordes con los objetivos del negocio?",
+        "factorRespuesta" : 0.125
+    },
+    {
+        "id" : "16",
+        "idFocus" : "PS",
+        "header" : "¿Tiene conocimiento de los objetivos de la Seguridad de la Información acordes con los objetivos del negocio?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "17",
+        "idFocus" : "PS",
+        "header" : "¿Se han comunicado convenientemente las responsabilidades y autoridades para la Seguridad de la Información?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "18",
+        "idFocus" : "PS",
+        "header" : "¿Sabe identificar y analizar los riesgos mediante un método de evaluación y aceptación de riesgos?",
+        "factorRespuesta" : 0.225
+    },
+    {
+        "id" : "19",
+        "idFocus" : "PS",
+        "header" : "¿Se ha definido un proceso de tratamiento de riesgos en su área de trabajo?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "20",
+        "idFocus" : "PS",
+        "header" : "¿Se han establecido objetivos de la Seguridad de la Información medibles y acordes a los objetivos del negocio?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "21",
+        "idFocus" : "PS",
+        "header" : "¿Ud. Tiene evaluaciones en materia de la seguridad de la información?",
+        "factorRespuesta" : 0.125
+    },
+    {
+        "id" : "22",
+        "idFocus" : "PS",
+        "header" : "¿Qué tan consciente de los daños que se pueden producir de no seguir las pautas de la Seguridad de la Información?",
+        "factorRespuesta" : 0.225
+    },
+    {
+        "id" : "23",
+        "idFocus" : "PS",
+        "header" : "¿Se comunica la política de la Seguridad de la Información con las responsabilidades de cada uno?",
+        "factorRespuesta" : 0.04
+    },
+    {
+        "id" : "24",
+        "idFocus" : "EOM",
+        "header" : "¿Qué tan estrictas son las medidas de seguridad respecto a la información de la empresa?",
+        "factorRespuesta" : 0.063
+    },
+    {
+        "id" : "25",
+        "idFocus" : "EOM",
+        "header" : "¿Está en conocimiento de las políticas, objetivos y metas en seguridad de la información?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "26",
+        "idFocus" : "EOM",
+        "header" : "¿Se realizan actividades para aclarar dudas acerca de la política de seguridad comunicada a los empleados, para garantizar su comprensión?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "27",
+        "idFocus" : "EOM",
+        "header" : "¿Los procedimientos que se llevan a cabo en centros de procesamiento de información se encuentran documentados y clasificados según su importancia?",
+        "factorRespuesta" : 0.113
+    },
+    {
+        "id" : "28",
+        "idFocus" : "EOM",
+        "header" : "¿La empresa se asegura de que los empleados apliquen la seguridad de acuerdo con las políticas de la organización?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "29",
+        "idFocus" : "EOM",
+        "header" : "¿Existen procesos formales de registros de usuarios, perfiles de acceso y autenticación remota?",
+        "factorRespuesta" : 0.113
+    },
+    {
+        "id" : "30",
+        "idFocus" : "EOM",
+        "header" : "¿Hay una política que se refiere al uso y servicios de las redes?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "31",
+        "idFocus" : "EOM",
+        "header" : "¿Se realizan procedimientos de balanceo y validación para los datos, tanto de entrada como de salida, para garantizar que no existan datos perdidos o incompletos?",
+        "factorRespuesta" : 0.063
+    },
+    {
+        "id" : "32",
+        "idFocus" : "EOM",
+        "header" : "¿La política de la organización incluye el uso de controles criptográficos para la protección de la información?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "33",
+        "idFocus" : "EOM",
+        "header" : "¿se registra el acceso de visitantes a las áreas sensibles, se revoca el acceso al finalizar su visita y es constantemente supervisado?",
+        "factorRespuesta" : 0.113
+    },
+    {
+        "id" : "34",
+        "idFocus" : "EOM",
+        "header" : "¿Los sistemas de información están supervisados y los eventos de seguridad de la información se registran junto a los logs?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "35",
+        "idFocus" : "EOM",
+        "header" : "¿Tiene conocimientos de medidas y planes para mitigar los riesgos en la Seguridad de la Información ante cambios realizados?",
+        "factorRespuesta" : 0.113
+    },
+    {
+        "id" : "36",
+        "idFocus" : "EOM",
+        "header" : "¿Tiene conocimiento de un proceso documentado de análisis y evaluación de riesgos para la Seguridad de la Información donde se identifique?",
+        "factorRespuesta" : 0.063
+    },
+    {
+        "id" : "37",
+        "idFocus" : "EOM",
+        "header" : "¿Sabe identificar todos los controles necesarios para mitigar el riesgo justificando su aplicación?",
+        "factorRespuesta" : 0.042
+    },
+    {
+        "id" : "38",
+        "idFocus" : "EOM",
+        "header" : "¿Sabe si se realizan auditorías al sistema de gestión de seguridad de la información y evalúa la efectividad de los controles?",
+        "factorRespuesta" : 0.063
+    },
+    {
+        "id" : "39",
+        "idFocus" : "SO",
+        "header" : "¿Se ha realizado un inventario de activos que dan soporte al negocio y de Información?",
+        "factorRespuesta" : 0.125
+    },
+    {
+        "id" : "40",
+        "idFocus" : "SO",
+        "header" : "¿Clasifica la información según su confidencialidad o su importancia en orden a establecer medidas de seguridad específicas?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "41",
+        "idFocus" : "SO",
+        "header" : "¿Se establecen accesos limitados a los recursos y necesidades de red según perfiles determinados?",
+        "factorRespuesta" : 0.09
+    },
+    {
+        "id" : "42",
+        "idFocus" : "SO",
+        "header" : "¿Existen procesos formales para asignación de perfiles de acceso?",
+        "factorRespuesta" : 0.09
+    },
+    {
+        "id" : "43",
+        "idFocus" : "SO",
+        "header" : "¿Se define un proceso específico para la asignación y autorización de permisos especiales de administración de accesos?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "44",
+        "idFocus" : "SO",
+        "header" : "¿Se establecen medidas de seguridad para zonas de oficinas para proteger la información de pantallas etc. en áreas accesibles a personal externo?",
+        "factorRespuesta" : 0.09
+    },
+    {
+        "id" : "45",
+        "idFocus" : "SO",
+        "header" : "¿Se protegen los equipos tanto del medio ambiente como de accesos no autorizados?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "46",
+        "idFocus" : "SO",
+        "header" : "¿Tiene conocimiento de normas para proteger la información de equipos cuando los usuarios abandonan el puesto de trabajo total o temporalmente?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "47",
+        "idFocus" : "SO",
+        "header" : "¿Se documentan los procedimientos y se establecen responsabilidades?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "48",
+        "idFocus" : "SO",
+        "header" : "¿Existen sistemas de detección para Software malicioso o malware?",
+        "factorRespuesta" : 0.09
+    },
+    {
+        "id" : "49",
+        "idFocus" : "SO",
+        "header" : "¿Se ha establecido un sistema de copias de seguridad acordes con las necesidades de la información y de los sistemas?",
+        "factorRespuesta" : 0.09
+    },
+    {
+        "id" : "50",
+        "idFocus" : "SO",
+        "header" : "¿Se ha establecido un sistema de protección para los registros mediante segregación de tareas o copias de seguridad?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "51",
+        "idFocus" : "SO",
+        "header" : "¿Las instalaciones de nuevas aplicaciones SW o modificaciones son verificadas en entornos de prueba y existen protocolos de seguridad para su instalación?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "52",
+        "idFocus" : "SO",
+        "header" : "¿Se establecen medidas restrictivas para la instalación de Software en cuanto a personal autorizado evitando las instalaciones por parte de usuarios finales?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "53",
+        "idFocus" : "SO",
+        "header" : "¿Existe separación o segregación de redes tomando en cuenta condiciones de seguridad y clasificación de activos?",
+        "factorRespuesta" : 0.033
+    },
+    {
+        "id" : "54",
+        "idFocus" : "SO",
+        "header" : "¿Se establecen políticas y procedimientos para proteger la información en los intercambios?",
+        "factorRespuesta" : 0.125
+    },
+    {
+        "id" : "55",
+        "idFocus" : "GC",
+        "header" : "¿Se definen responsabilidades y procedimientos para responder a los incidentes de la Seguridad de la Información?",
+        "factorRespuesta" : 0.225
+    },
+    {
+        "id" : "56",
+        "idFocus" : "GC",
+        "header" : "¿Se ha establecido un proceso para gestionar los incidentes en la Seguridad de la Información?",
+        "factorRespuesta" : 0.1
+    },
+    {
+        "id" : "57",
+        "idFocus" : "GC",
+        "header" : "¿Se ha elaborado un plan de continuidad del negocio ante incidentes de Seguridad de la Información?",
+        "factorRespuesta" : 0.225
+    },
+    {
+        "id" : "58",
+        "idFocus" : "GC",
+        "header" : "¿Se ha evaluado la necesidad de redundar los activos críticos de la Información?",
+        "factorRespuesta" : 0.1
+    },
+    {
+        "id" : "59",
+        "idFocus" : "GC",
+        "header" : "¿Se establecen medidas para la protección de datos personales de acuerdo con la legislación vigente?",
+        "factorRespuesta" : 0.1
+    },
+    {
+        "id" : "60",
+        "idFocus" : "GC",
+        "header" : "¿Se revisan los controles de la Seguridad de la Información por personal independiente a los responsables de implementar los controles?",
+        "factorRespuesta" : 0.25
+    }
+]
