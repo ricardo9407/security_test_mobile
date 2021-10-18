@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons:
   provider: 
   email_validator: 
-  http: 
+  http: ^0.13.1
 
 dev_dependencies:
   flutter_test:

@@ -14,29 +14,4 @@ class QuestionModel with ChangeNotifier {
     this.header,
     this.factorRespuesta,
   });
-
-  String get getId {
-    return id;
-  }
-
-  String get getIdFocus {
-    return idFocus;
-  }
-
-  String get getHeader {
-    return header;
-  }
-
-  double get getFactorRespuesta {
-    return factorRespuesta;
-  }
-
-  factory QuestionModel.fromJson(Map<String, dynamic> json) {
-    return QuestionModel(
-      id: json['id'],
-      idFocus: json['idFocus'],
-      header: json['header'],
-      factorRespuesta: json['factorRespuesta'],
-    );
-  }
 }

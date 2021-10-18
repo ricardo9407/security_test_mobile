@@ -3,17 +3,29 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:security_test_mobile/Question/model/question.dart';
+import 'package:http/http.dart' show Client;
 
+String error;
 List<QuestionModel> message = [];
 
-class QuestionFetch {
-  /*Future<List<QuestionModel>> fetchQuestion() async {
-    String data = await DefaultAssetBundle.of(context)
-        .loadString("assets/questions.json");
-    return listToASingleQuestion(json.decode(data));
-  }*/
+class QuestionFetch with ChangeNotifier {
+  Client client = Client();
+
+  final _baseUrl =
+      'https://run.mocky.io/v3/ccaf60e7-41c1-43a1-8481-a352d6e39545';
+
+  Future<List<QuestionModel>> fetchQuestion() async {
+    final String url = _baseUrl;
+    final response = await client.get(Uri.parse("$url"));
+    //print(response.body.toString());
+    if (response.statusCode == 200) {
+      return listToASingleQuestion(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load Question');
+    }
+  }
 
   List<QuestionModel> listToASingleQuestion(listQuestion) {
     List<QuestionModel> aux = [];
@@ -26,7 +38,7 @@ class QuestionFetch {
         factorRespuesta: question['factorRespuesta'],
       ));
     });
-    print(aux);
+    print(aux.length);
     return aux;
   }
 }
