@@ -19,7 +19,6 @@ class QuestionFetch with ChangeNotifier {
   Future<List<QuestionModel>> fetchQuestion() async {
     final String url = _baseUrl;
     final response = await client.get(Uri.parse("$url"));
-    //print(response.body.toString());
     if (response.statusCode == 200) {
       return listToASingleQuestion(json.decode(response.body));
     } else {
@@ -38,7 +37,6 @@ class QuestionFetch with ChangeNotifier {
         factorRespuesta: question['factorRespuesta'],
       ));
     });
-    print(aux.length);
     return aux;
   }
 }

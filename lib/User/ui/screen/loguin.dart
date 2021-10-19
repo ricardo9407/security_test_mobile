@@ -1,10 +1,7 @@
 //@dart=2.9
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:security_test_mobile/Question/ui/screen/screen_question.dart';
-import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/Widget/buildfocus.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/text_input.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
@@ -15,16 +12,11 @@ class Loguin extends StatefulWidget {
 }
 
 class _Loguin extends State<Loguin> {
-  final _controllerName = TextEditingController();
-
-  final _controlleremail = TextEditingController();
-
-  bool _isValid = false;
+  final controllerName = TextEditingController();
+  final controlleremail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserModel>(context);
-
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -49,7 +41,7 @@ class _Loguin extends State<Loguin> {
                       hintText: "Name",
                       inputType: null,
                       maxLine: 1,
-                      controller: _controllerName,
+                      controller: controllerName,
                     ),
                     SizedBox(
                       height: 5.0,
@@ -58,7 +50,7 @@ class _Loguin extends State<Loguin> {
                       hintText: "Email",
                       inputType: null,
                       maxLine: 1,
-                      controller: _controlleremail,
+                      controller: controlleremail,
                     ),
                   ],
                 ),
@@ -66,22 +58,9 @@ class _Loguin extends State<Loguin> {
               SizedBox(
                 height: 50.0,
               ),
-              FloatingActionButton(
-                onPressed: () {
-                  user.setUserName = _controllerName.value.text;
-                  user.setUserEmail = _controlleremail.value.text;
-                  _isValid = EmailValidator.validate(user.getUserEmail);
-                  if (user.getUserName.length > 4 && _isValid == true) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ScreenQuestion(),
-                      ),
-                    );
-                  }
-                },
-                child: Icon(Icons.navigate_next),
-                backgroundColor: Colors.lightBlue,
+              BuildFocus(
+                name: controllerName.value.text,
+                email: controlleremail.value.text,
               ),
             ],
           ),

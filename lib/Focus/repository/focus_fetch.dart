@@ -37,7 +37,6 @@ class FocusFetch with ChangeNotifier {
         ptsTotal: focus['ptsTotal'].toDouble(),
       ));
     });
-    print(aux.length);
     return aux;
   }
 }
