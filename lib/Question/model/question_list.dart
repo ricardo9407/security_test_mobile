@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:security_test_mobile/Question/model/question.dart';
 
 class QuestionList with ChangeNotifier {
-  List<QuestionModel> questions;
+  List<QuestionModel> questions = [];
 
   QuestionList({
     Key key,

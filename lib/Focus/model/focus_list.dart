@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:security_test_mobile/Focus/model/focus.dart';
 
 class FocusList with ChangeNotifier {
-  List<FocusModel> focus;
+  List<FocusModel> focus = [];
 
   FocusList({
     Key key,
