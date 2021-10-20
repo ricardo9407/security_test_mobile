@@ -15,6 +15,16 @@ class QuestionList with ChangeNotifier {
     return questions;
   }
 
+  QuestionModel getQuestion(int index) {
+    var aux;
+    for (var i = 0; i < this.questions.length; i++) {
+      if (i == index) {
+        aux = this.questions[i];
+      }
+    }
+    return aux;
+  }
+
   set setQuestions(List<QuestionModel> questions) {
     this.questions = questions;
     notifyListeners();

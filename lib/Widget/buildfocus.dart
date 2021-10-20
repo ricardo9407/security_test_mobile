@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:security_test_mobile/Focus/model/focus.dart';
 import 'package:security_test_mobile/Focus/model/focus_list.dart';
 import 'package:security_test_mobile/Focus/repository/repository_focus.dart';
@@ -10,23 +9,8 @@ import 'package:security_test_mobile/Question/model/question.dart';
 import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Question/repository/repository_question.dart';
 import 'package:security_test_mobile/Question/ui/screen/screen_question.dart';
-import 'package:security_test_mobile/User/model/user.dart';
 
-class BuildFocus extends StatefulWidget {
-  String name;
-  String email;
-
-  BuildFocus({
-    Key key,
-    @required this.name,
-    @required this.email,
-  });
-
-  @override
-  State<BuildFocus> createState() => _BuildFocusState();
-}
-
-class _BuildFocusState extends State<BuildFocus> {
+class BuildFocus extends StatelessWidget {
   final frep = RepositoryFocus();
   final qrep = RepositoryQuestion();
 
@@ -35,14 +19,12 @@ class _BuildFocusState extends State<BuildFocus> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserModel>(context);
     final focus = Provider.of<FocusList>(context);
     final question = Provider.of<QuestionList>(context);
 
     frep.fetchFocus();
     qrep.fetchQuestion();
 
-    bool _isValid = false;
     FocusModel fo;
     QuestionModel que;
 
@@ -80,22 +62,18 @@ class _BuildFocusState extends State<BuildFocus> {
                     return Center(
                       child: FloatingActionButton(
                         onPressed: () {
-                          print(widget.name);
-                          user.setUserName = widget.name;
-                          user.setUserEmail = widget.email;
-                          _isValid = EmailValidator.validate(user.getUserEmail);
-                          if (user.getUserName.length > 4 && _isValid == true) {
-                            focus.setFocus = focusList;
-                            question.setQuestions = questionList;
-                            print(focus.getFocus.length);
-                            print(question.getQuestions.length);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ScreenQuestion(),
+                          focus.setFocus = focusList;
+                          question.setQuestions = questionList;
+                          print(focus.getFocus.length);
+                          print(question.getQuestions.length);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ScreenQuestion(
+                                index: 0,
                               ),
-                            );
-                          }
+                            ),
+                          );
                         },
                         child: Icon(Icons.navigate_next),
                         backgroundColor: Colors.blue,
