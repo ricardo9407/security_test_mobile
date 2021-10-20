@@ -1,6 +1,8 @@
+//@dart=2.9
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:security_test_mobile/Question/ui/screen/screen_question.dart';
+import 'package:security_test_mobile/Widget/buildfocus.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 
 class Instructions extends StatefulWidget {
@@ -61,18 +63,7 @@ class _Instructions extends State<Instructions> {
               SizedBox(
                 height: 50.0,
               ),
-              FloatingActionButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ScreenQuestion(),
-                    ),
-                  );
-                },
-                child: Icon(Icons.navigate_next),
-                backgroundColor: Colors.lightBlue,
-              ),
+              BuildFocus(),
             ],
           )
         ],

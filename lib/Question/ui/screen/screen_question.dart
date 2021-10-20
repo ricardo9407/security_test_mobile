@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:security_test_mobile/Question/ui/widget/answersList.dart';
 import 'package:security_test_mobile/Question/ui/widget/header.dart';
-import 'package:security_test_mobile/User/ui/screen/paso.dart';
+import 'package:security_test_mobile/User/ui/screen/instructions.dart';
 import 'package:security_test_mobile/Widget/header-appbar.dart';
 
 class ScreenQuestion extends StatelessWidget {
@@ -54,7 +54,7 @@ class ScreenQuestion extends StatelessWidget {
         ),
       );
     } else {
-      return Paso();
+      return Instructions();
     }
   }
 }

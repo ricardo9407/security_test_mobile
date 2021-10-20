@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:security_test_mobile/User/model/user.dart';
-import 'package:security_test_mobile/User/ui/screen/paso.dart';
+import 'package:security_test_mobile/User/ui/screen/instructions.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/text_input.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
-
-import 'paso.dart';
 
 class Loguin extends StatefulWidget {
   @override
@@ -80,7 +78,7 @@ class _Loguin extends State<Loguin> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Paso(),
+                        builder: (context) => Instructions(),
                       ),
                     );
                   }
