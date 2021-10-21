@@ -2,13 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:security_test_mobile/Question/ui/widget/answersList.dart';
+import 'package:security_test_mobile/Focus/model/focus_list.dart';
+import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Question/ui/widget/header.dart';
 import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/User/ui/screen/score.dart';
 import 'package:security_test_mobile/Widget/header-appbar.dart';
 
 // ignore: must_be_immutable
-class ScreenQuestion extends StatelessWidget {
+class ScreenQuestion extends StatefulWidget {
   int index;
 
   ScreenQuestion({
@@ -17,9 +19,21 @@ class ScreenQuestion extends StatelessWidget {
   });
 
   @override
+  State<ScreenQuestion> createState() => _ScreenQuestionState();
+}
+
+class _ScreenQuestionState extends State<ScreenQuestion> {
+  double character = 0;
+  double pts = 0;
+
+  @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
-    if (index < 60) {
+    final focus = Provider.of<FocusList>(context);
+    final question = Provider.of<QuestionList>(context);
+    var quest = question.getQuestion(widget.index);
+    var focu = focus.getFocu(quest.idFocus);
+    if (widget.index < 60) {
       return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -29,10 +43,62 @@ class ScreenQuestion extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(height: 50.0),
                   Header(
-                    index: index,
+                    index: widget.index,
                   ),
-                  AnswersList(
-                    index: index,
+                  Container(
+                    padding: EdgeInsets.only(top: 50.0),
+                    child: Column(
+                      children: <Widget>[
+                        RadioListTile<double>(
+                          title: const Text('Nunca'),
+                          value: 1,
+                          groupValue: character,
+                          onChanged: (double value) {
+                            setState(
+                              () {
+                                character = value;
+                              },
+                            );
+                          },
+                        ),
+                        RadioListTile<double>(
+                          title: const Text('Casi Nunca'),
+                          value: 3,
+                          groupValue: character,
+                          onChanged: (double value) {
+                            setState(
+                              () {
+                                character = value;
+                              },
+                            );
+                          },
+                        ),
+                        RadioListTile<double>(
+                          title: const Text('Casi Siempre'),
+                          value: 5,
+                          groupValue: character,
+                          onChanged: (double value) {
+                            setState(
+                              () {
+                                character = value;
+                              },
+                            );
+                          },
+                        ),
+                        RadioListTile<double>(
+                          title: const Text('Siempre'),
+                          value: 7,
+                          groupValue: character,
+                          onChanged: (double value) {
+                            setState(
+                              () {
+                                character = value;
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 70.0,
@@ -40,12 +106,32 @@ class ScreenQuestion extends StatelessWidget {
                   ),
                   FloatingActionButton(
                     onPressed: () {
-                      index++;
+                      pts = character * quest.factorRespuesta * focu.factor;
+                      if (widget.index < 13) {
+                        user.setPtsF1 = user.getPtsF1 + pts;
+                      } else {
+                        if (widget.index < 24) {
+                          user.setPtsF2 = user.getPtsF2 + pts;
+                        } else {
+                          if (widget.index < 39) {
+                            user.setPtsF3 = user.getPtsF3 + pts;
+                          } else {
+                            if (widget.index < 55) {
+                              user.setPtsF4 = user.getPtsF4 + pts;
+                            } else {
+                              if (widget.index < 61) {
+                                user.setPtsF5 = user.getPtsF5 + pts;
+                              }
+                            }
+                          }
+                        }
+                      }
+                      widget.index++;
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => ScreenQuestion(
-                            index: index,
+                            index: widget.index,
                           ),
                         ),
                       );
@@ -61,22 +147,7 @@ class ScreenQuestion extends StatelessWidget {
         ),
       );
     } else {
-      print('Puntaje Primer Enfoque:');
-      print(user.getPtsF1);
-      print('Puntaje Segundo Enfoque:');
-      print(user.getPtsF2);
-      print('Puntaje Tercer Enfoque:');
-      print(user.getPtsF3);
-      print('Puntaje Cuarto Enfoque:');
-      print(user.getPtsF4);
-      print('Puntaje Quinto Enfoque:');
-      print(user.getPtsF5);
-      print('Puntaje Total:');
-      print(user.getPtsF1 +
-          user.getPtsF2 +
-          user.getPtsF3 +
-          user.getPtsF4 +
-          user.getPtsF5);
+      return Score();
     }
   }
 }
