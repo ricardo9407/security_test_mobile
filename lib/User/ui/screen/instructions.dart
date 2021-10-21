@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:security_test_mobile/Widget/buildfocus.dart';
+import 'package:security_test_mobile/Widget/buildList.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 
 class Instructions extends StatefulWidget {
@@ -65,7 +65,7 @@ class _Instructions extends State<Instructions> {
               SizedBox(
                 height: 100.0,
               ),
-              BuildFocus(),
+              BuildList(),
             ],
           )
         ],

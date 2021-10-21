@@ -21,8 +21,8 @@ class _Loguin extends State<Loguin> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
-
     bool _isValid = false;
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -74,7 +74,7 @@ class _Loguin extends State<Loguin> {
                   user.setPtsF4 = 0.0;
                   user.setPtsF5 = 0.0;
                   _isValid = EmailValidator.validate(user.getUserEmail);
-                  if (user.getUserName.length > 4 && _isValid == true) {
+                  if (user.getUserName.length >= 4 && _isValid == true) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -1,13 +1,14 @@
+//@dart=2.9
+
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class GradientBack extends StatelessWidget {
-  double? height;
-  GradientBack({Key? key, this.height}); //height = nell full screen
-  @override
+  double height;
+
+  GradientBack({Key key, this.height});
+
   Widget build(BuildContext context) {
-    // ignore: todo
-    // TODO: implement build
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     if (height == null) {

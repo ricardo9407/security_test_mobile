@@ -1,22 +1,25 @@
+//@dart=2.9
+
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class TextInput extends StatelessWidget {
-  final String? hintText;
-  final TextInputType? inputType;
-  final TextEditingController? controller;
-  int? maxLine = 1;
+  final String hintText;
+  final TextInputType inputType;
+  final TextEditingController controller;
+
+  int maxLine = 1;
+
   TextInput({
-    Key? key,
+    Key key,
     @required this.hintText,
     @required this.inputType,
     @required this.controller,
     this.maxLine,
   });
+
   @override
   Widget build(BuildContext context) {
-    // ignore: todo
-    // TODO: implement build
     return Container(
         padding: EdgeInsets.only(right: 20.0),
         child: TextField(

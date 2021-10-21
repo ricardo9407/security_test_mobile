@@ -10,12 +10,12 @@ import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Question/repository/repository_question.dart';
 import 'package:security_test_mobile/Question/ui/screen/screen_question.dart';
 
-class BuildFocus extends StatefulWidget {
+class BuildList extends StatefulWidget {
   @override
-  State<BuildFocus> createState() => _BuildFocus();
+  State<BuildList> createState() => _BuildList();
 }
 
-class _BuildFocus extends State<BuildFocus> {
+class _BuildList extends State<BuildList> {
   final frep = RepositoryFocus();
   final qrep = RepositoryQuestion();
 
@@ -122,26 +122,23 @@ class _BuildFocus extends State<BuildFocus> {
       questionList.add(que);
     }
     return Center(
-      child: Container(
-        //padding: EdgeInsets.only(top: 50.0),
-        child: FloatingActionButton(
-          onPressed: () {
-            focu.setFocus = focusList;
-            question.setQuestions = questionList;
-            print(focu.getFocus.length);
-            print(question.getQuestions.length);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ScreenQuestion(
-                  index: 0,
-                ),
+      child: FloatingActionButton(
+        onPressed: () {
+          focu.setFocus = focusList;
+          question.setQuestions = questionList;
+          print(focu.getFocus.length);
+          print(question.getQuestions.length);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ScreenQuestion(
+                index: 0,
               ),
-            );
-          },
-          child: Icon(Icons.navigate_next),
-          backgroundColor: Colors.blue,
-        ),
+            ),
+          );
+        },
+        child: Icon(Icons.navigate_next),
+        backgroundColor: Colors.blue,
       ),
     );
   }
