@@ -7,7 +7,7 @@ import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/User/model/user.dart';
 
 class AnswersList extends StatefulWidget {
-  int index;
+  final int index;
 
   AnswersList({
     Key key,

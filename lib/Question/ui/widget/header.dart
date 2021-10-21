@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:security_test_mobile/Question/model/question_list.dart';
 
 class Header extends StatelessWidget {
-  int index;
+  final int index;
 
   Header({
     Key key,
