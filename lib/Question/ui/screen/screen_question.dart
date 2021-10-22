@@ -6,6 +6,7 @@ import 'package:security_test_mobile/Focus/model/focus_list.dart';
 import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Question/ui/widget/header.dart';
 import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/User/ui/screen/focusScore.dart';
 import 'package:security_test_mobile/User/ui/screen/score.dart';
 import 'package:security_test_mobile/Widget/header-appbar.dart';
 
@@ -102,39 +103,54 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                   ),
                   SizedBox(
                     height: 70.0,
-                    width: 200,
                   ),
                   FloatingActionButton(
                     onPressed: () {
                       pts = character * quest.factorRespuesta * focu.factor;
-                      if (widget.index < 13) {
+                      if (widget.index < 12) {
                         user.setPtsF1 = user.getPtsF1 + pts;
                       } else {
-                        if (widget.index < 24) {
+                        if (widget.index < 23) {
                           user.setPtsF2 = user.getPtsF2 + pts;
                         } else {
-                          if (widget.index < 39) {
+                          if (widget.index < 38) {
                             user.setPtsF3 = user.getPtsF3 + pts;
                           } else {
-                            if (widget.index < 55) {
+                            if (widget.index < 54) {
                               user.setPtsF4 = user.getPtsF4 + pts;
                             } else {
-                              if (widget.index < 61) {
+                              if (widget.index < 60) {
                                 user.setPtsF5 = user.getPtsF5 + pts;
                               }
                             }
                           }
                         }
                       }
-                      widget.index++;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ScreenQuestion(
-                            index: widget.index,
+                      if (widget.index == 11 ||
+                          widget.index == 22 ||
+                          widget.index == 37 ||
+                          widget.index == 53) {
+                        widget.index++;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FocusScore(
+                              id: focu.id,
+                              index: widget.index,
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        widget.index++;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ScreenQuestion(
+                              index: widget.index,
+                            ),
+                          ),
+                        );
+                      }
                     },
                     child: Icon(Icons.navigate_next),
                     backgroundColor: Colors.lightBlue,
