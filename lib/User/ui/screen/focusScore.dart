@@ -49,6 +49,9 @@ class _FocusScore extends State<FocusScore> {
           if (widget.index - 1 == 53) {
             suma = user.getPtsF4;
             num = 'Cuarto';
+          } else {
+            suma = user.getPtsF5;
+            num = 'Quinto';
           }
         }
       }
@@ -88,9 +91,8 @@ class _FocusScore extends State<FocusScore> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ScreenQuestion(
-                          index: widget.index,
-                        ),
+                        builder: (context) =>
+                            ScreenQuestion(index: widget.index),
                       ),
                     );
                   },

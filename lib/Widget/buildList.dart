@@ -131,9 +131,7 @@ class _BuildList extends State<BuildList> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ScreenQuestion(
-                index: 0,
-              ),
+              builder: (context) => ScreenQuestion(index: 0),
             ),
           );
         },

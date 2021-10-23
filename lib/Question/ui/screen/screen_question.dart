@@ -129,7 +129,8 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                       if (widget.index == 11 ||
                           widget.index == 22 ||
                           widget.index == 37 ||
-                          widget.index == 53) {
+                          widget.index == 53 ||
+                          widget.index == 59) {
                         widget.index++;
                         Navigator.push(
                           context,
@@ -145,9 +146,8 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ScreenQuestion(
-                              index: widget.index,
-                            ),
+                            builder: (context) =>
+                                ScreenQuestion(index: widget.index),
                           ),
                         );
                       }
