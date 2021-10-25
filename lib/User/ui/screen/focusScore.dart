@@ -57,52 +57,59 @@ class _FocusScore extends State<FocusScore> {
       }
     }
 
-    return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          GradientBack(height: null),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                child: TitleHeader(
-                  title:
-                      'Has terminado el ' + num + ' Enfoque: ' + foc.nameFocus,
-                  tamanio: 30.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            GradientBack(height: null),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Flexible(
+                  child: TitleHeader(
+                    title: 'Has terminado el ' +
+                        num +
+                        ' Enfoque: ' +
+                        foc.nameFocus,
+                    tamanio: 30.0,
+                    padding:
+                        EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  ),
                 ),
-              ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Tu puntaje en este enfoque es de: ' +
-                      suma.toStringAsFixed(4),
-                  tamanio: 30.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                Flexible(
+                  child: TitleHeader(
+                    title: 'Tu puntaje en este enfoque es de: ' +
+                        suma.toStringAsFixed(4),
+                    tamanio: 30.0,
+                    padding:
+                        EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 50.0,
-              ),
-              Center(
-                child: FloatingActionButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ScreenQuestion(index: widget.index),
-                      ),
-                    );
-                  },
-                  child: Icon(Icons.navigate_next),
-                  backgroundColor: Colors.lightBlue,
+                SizedBox(
+                  height: 50.0,
                 ),
-              ),
-            ],
-          ),
-        ],
+                Center(
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ScreenQuestion(index: widget.index),
+                        ),
+                      );
+                    },
+                    child: Icon(Icons.navigate_next),
+                    backgroundColor: Colors.lightBlue,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
