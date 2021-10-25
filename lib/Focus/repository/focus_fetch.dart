@@ -14,7 +14,7 @@ class FocusFetch with ChangeNotifier {
   Client client = Client();
 
   final _baseUrl =
-      'https://run.mocky.io/v3/2d2d2f79-efcc-4561-b3a9-9677458fdeac';
+      'https://run.mocky.io/v3/6b006500-50b3-4125-92b2-a50c48e4676c';
 
   Future<List<FocusModel>> fetchFocus() async {
     final String url = _baseUrl;
@@ -34,7 +34,6 @@ class FocusFetch with ChangeNotifier {
         id: focus['id'],
         nameFocus: focus['nameFocus'],
         factor: focus['factor'],
-        ptsTotal: focus['ptsTotal'].toDouble(),
       ));
     });
     return aux;

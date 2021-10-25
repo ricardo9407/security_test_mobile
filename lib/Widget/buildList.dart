@@ -70,7 +70,6 @@ class _BuildList extends State<BuildList> {
         id: focus[i].id,
         nameFocus: focus[i].nameFocus,
         factor: focus[i].factor,
-        ptsTotal: focus[i].ptsTotal,
       );
       focusList.add(fo);
     }

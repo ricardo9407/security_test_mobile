@@ -97,21 +97,76 @@ class _Score extends State<Score> {
                 child: TitleHeader(
                   title: 'Puntaje Total: ' + suma.toStringAsFixed(5),
                   tamanio: 30.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  padding: EdgeInsets.only(left: 20.0, right: 10.0),
                 ),
               ),
               Flexible(
                 child: TitleHeader(
                   title: 'Nivel: ' + nivel,
                   tamanio: 30.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
                 ),
               ),
               Flexible(
                 child: TitleHeader(
                   title: 'Sub-Nivel: ' + subNivel,
                   tamanio: 30.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                ),
+              ),
+              Flexible(
+                child: TitleHeader(
+                  title: 'Puntaje Enfoque 1: ' +
+                      user.getPtsF1.toStringAsFixed(4) +
+                      '/0.7 (' +
+                      ((user.getPtsF1 / 0.7) * 100).toStringAsFixed(1) +
+                      ' )',
+                  tamanio: 20.0,
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                ),
+              ),
+              Flexible(
+                child: TitleHeader(
+                  title: 'Puntaje Enfoque 2: ' +
+                      user.getPtsF2.toStringAsFixed(4) +
+                      '/1.37 (' +
+                      ((user.getPtsF2 / 1.4) * 100).toStringAsFixed(1) +
+                      ' )',
+                  tamanio: 20.0,
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                ),
+              ),
+              Flexible(
+                child: TitleHeader(
+                  title: 'Puntaje Enfoque 3: ' +
+                      user.getPtsF3.toStringAsFixed(4) +
+                      '/1.74 (' +
+                      ((user.getPtsF3 / 1.75) * 100).toStringAsFixed(1) +
+                      ' )',
+                  tamanio: 20.0,
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                ),
+              ),
+              Flexible(
+                child: TitleHeader(
+                  title: 'Puntaje Enfoque 4: ' +
+                      user.getPtsF4.toStringAsFixed(4) +
+                      '/2.09 (' +
+                      ((user.getPtsF4 / 2.1) * 100).toStringAsFixed(1) +
+                      ' )',
+                  tamanio: 20.0,
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                ),
+              ),
+              Flexible(
+                child: TitleHeader(
+                  title: 'Puntaje Enfoque 5: ' +
+                      user.getPtsF5.toStringAsFixed(4) +
+                      '/1.05 (' +
+                      ((user.getPtsF5 / 1.05) * 100).toStringAsFixed(1) +
+                      ' )',
+                  tamanio: 20.0,
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
                 ),
               ),
             ],
