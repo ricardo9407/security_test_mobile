@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:security_test_mobile/Focus/model/focus_list.dart';
 import 'package:security_test_mobile/Question/model/question_list.dart';
+import 'package:security_test_mobile/Tip/model/tip_list.dart';
 import 'package:security_test_mobile/User/model/user.dart';
 import 'package:security_test_mobile/User/ui/screen/loguin.dart';
 
@@ -20,6 +21,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (_) => QuestionList(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => TipList(),
         ),
       ],
       child: MyApp(),

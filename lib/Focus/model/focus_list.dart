@@ -25,16 +25,6 @@ class FocusList with ChangeNotifier {
     return aux;
   }
 
-  void setPuntos(String index, FocusModel aux) {
-    for (var i = 0; i < this.focus.length; i++) {
-      if (this.focus[i].id == index) {
-        this.focus[i] = aux;
-        //print(this.focus[i].ptsTotal);
-      }
-    }
-    notifyListeners();
-  }
-
   set setFocus(List<FocusModel> focus) {
     this.focus = focus;
     notifyListeners();
