@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:security_test_mobile/Tip/ui/widget/buildListTip.dart';
 import 'package:security_test_mobile/User/model/user.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
@@ -16,24 +17,29 @@ class _Score extends State<Score> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
 
+    String id = ' ';
     String nivel = ' ';
     String subNivel = ' ';
-    double suma = user.getPtsF1 +
+    double suma = 0;
+    /*user.getPtsF1 +
         user.getPtsF2 +
         user.getPtsF3 +
         user.getPtsF4 +
-        user.getPtsF5;
+        user.getPtsF5;*/
 
     if (suma < 2.5) {
       nivel = 'Basico (Nivel 1)';
       if (suma < 1.945) {
         subNivel = "sub1";
+        id = "1.1";
       } else {
         if (suma >= 1.945 && suma < 1.975) {
           subNivel = "sub2";
+          id = "1.2";
         } else {
           if (suma > 1.975) {
             subNivel = "sub3";
+            id = "1.3";
           }
         }
       }
@@ -42,12 +48,15 @@ class _Score extends State<Score> {
         nivel = 'Definido (Nivel 2)';
         if (suma < 2.995) {
           subNivel = "sub1";
+          id = "2.1";
         } else {
           if (suma >= 2.995 && suma < 3.475) {
             subNivel = "sub2";
+            id = "2.2";
           } else {
             if (suma > 3.475) {
               subNivel = "sub3";
+              id = "2.3";
             }
           }
         }
@@ -56,12 +65,15 @@ class _Score extends State<Score> {
           nivel = 'Estable (Nivel 3)';
           if (suma < 4.495) {
             subNivel = "sub1";
+            id = "3.1";
           } else {
             if (suma >= 4.495 && suma < 4.975) {
               subNivel = "sub2";
+              id = "3.2";
             } else {
               if (suma > 4.975) {
                 subNivel = "sub3";
+                id = "3.3";
               }
             }
           }
@@ -70,12 +82,15 @@ class _Score extends State<Score> {
             nivel = 'Avanzado (Nivel 4)';
             if (suma < 5.995) {
               subNivel = "sub1";
+              id = "4.1";
             } else {
               if (suma >= 5.995 && suma < 6.475) {
                 subNivel = "sub2";
+                id = "4.2";
               } else {
                 if (suma > 6.475) {
                   subNivel = "sub3";
+                  id = "4.3";
                 }
               }
             }
@@ -169,6 +184,10 @@ class _Score extends State<Score> {
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
                 ),
               ),
+              SizedBox(
+                height: 20.0,
+              ),
+              BuildListTip(id: id),
             ],
           ),
         ],

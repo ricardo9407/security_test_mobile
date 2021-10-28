@@ -26,7 +26,7 @@ class TipList with ChangeNotifier {
     return aux2;
   }
 
-  set setFocus(List<TipModel> tips) {
+  set setTip(List<TipModel> tips) {
     this.tips = tips;
     notifyListeners();
   }
