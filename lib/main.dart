@@ -8,6 +8,7 @@ import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Tip/model/tip_list.dart';
 import 'package:security_test_mobile/User/model/user.dart';
 import 'package:security_test_mobile/User/ui/screen/loguin.dart';
+import 'package:security_test_mobile/User/ui/screen/tip_screen.dart';
 
 void main() {
   runApp(
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Security Test',
       initialRoute: 'loguin',
-      routes: {'loguin': (context) => Loguin()},
+      routes: {'loguin': (context) => TipScreen()},
     );
   }
 }

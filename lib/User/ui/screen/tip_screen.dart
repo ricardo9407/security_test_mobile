@@ -25,6 +25,10 @@ class _TipScreen extends State<TipScreen> {
     List<TipModel> tips = tip.getTip(widget.id);
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF4268D3),
+        title: Text('Consejos'),
+      ),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -35,7 +39,7 @@ class _TipScreen extends State<TipScreen> {
               return ListTile(
                 title: TitleHeader(
                   title: tips[index].tip,
-                  tamanio: 15.0,
+                  tamanio: 25.0,
                   padding: EdgeInsets.only(top: 15.0, left: 20.0, right: 10.0),
                 ),
               );

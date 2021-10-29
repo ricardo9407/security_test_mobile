@@ -20,15 +20,14 @@ class _Score extends State<Score> {
     String id = ' ';
     String nivel = ' ';
     String subNivel = ' ';
-    double suma = 0;
-    /*user.getPtsF1 +
+    double suma = user.getPtsF1 +
         user.getPtsF2 +
         user.getPtsF3 +
         user.getPtsF4 +
-        user.getPtsF5;*/
+        user.getPtsF5;
 
     if (suma < 2.5) {
-      nivel = 'Basico (Nivel 1)';
+      nivel = 'Cofre (Nivel 1)';
       if (suma < 1.945) {
         subNivel = "sub1";
         id = "1.1";
@@ -45,7 +44,7 @@ class _Score extends State<Score> {
       }
     } else {
       if (suma >= 2.5 && suma < 4) {
-        nivel = 'Definido (Nivel 2)';
+        nivel = 'Caja Fuerte (Nivel 2)';
         if (suma < 2.995) {
           subNivel = "sub1";
           id = "2.1";
@@ -62,7 +61,7 @@ class _Score extends State<Score> {
         }
       } else {
         if (suma >= 4 && suma < 5.5) {
-          nivel = 'Estable (Nivel 3)';
+          nivel = 'Bobeda (Nivel 3)';
           if (suma < 4.495) {
             subNivel = "sub1";
             id = "3.1";
@@ -79,7 +78,7 @@ class _Score extends State<Score> {
           }
         } else {
           if (suma >= 5.5 && suma < 7) {
-            nivel = 'Avanzado (Nivel 4)';
+            nivel = 'Bunker (Nivel 4)';
             if (suma < 5.995) {
               subNivel = "sub1";
               id = "4.1";
@@ -100,6 +99,10 @@ class _Score extends State<Score> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF4268D3),
+        title: Text('Puntos'),
+      ),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
