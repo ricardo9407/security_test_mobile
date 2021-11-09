@@ -126,6 +126,11 @@ class _BuildListUser extends State<BuildListUser> {
           users.setUsers = userList;
           company.setCompanies = companyList;
           print(users.getUsers.length);
+          for (var i = 0; i < users.getUsers.length; i++) {
+            print(users.getUsers[i].name);
+            print(users.getUsers[i].email);
+            print(users.getUsers[i].idOrg);
+          }
           print(company.getCompanies.length);
           Navigator.push(
             context,

@@ -27,7 +27,7 @@ class UserList with ChangeNotifier {
   List<UserModel> getUserss(String _idOrg, String _id) {
     var aux;
     List<UserModel> aux2 = [];
-    for (var i = 0; i < 17; i++) {
+    for (var i = 0; i < this.users.length / 3; i++) {
       if (this.users[i].idOrg == _idOrg && this.users[i].id != _id) {
         aux = this.users[i];
         aux2.add(aux);
