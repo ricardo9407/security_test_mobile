@@ -13,9 +13,6 @@ List<UserModel> message = [];
 class UserFetch with ChangeNotifier {
   Client client = Client();
 
-  //final _baseUrl =
-  //  'https://run.mocky.io/v3/7a235db9-795e-4ca5-85f0-5e5711016929';
-
   Future<List<UserModel>> fetchUser() async {
     final conn = await MySqlConnection.connect(ConnectionSettings(
         host: 'sql10.freemysqlhosting.net',
@@ -25,15 +22,35 @@ class UserFetch with ChangeNotifier {
         password: 'm3s8lRTXE8'));
 
     return listToASingleUser(await conn.query(
-        'SELECT EM.Nombre as idOrg, name, US.nivel, ptsF1, ptsF2, ptsF3, ptsF4, ptsF5, email, id FROM Usuario US INNER JOIN Empresa EM ON EM.ID_Empresa = US.idOrg'));
+        'SELECT EM.Nombre as idOrg, admin , name, US.nivel, ptsF1, ptsF2, ptsF3, ptsF4, ptsF5, email, id FROM Usuario US INNER JOIN Empresa EM ON EM.ID_Empresa = US.idOrg'));
+  }
 
-    /* final String url = _baseUrl;
-    final response = await client.get(Uri.parse("$url"));
-    if (response.statusCode == 200) {
-      return listToASingleUser(json.decode(response.body));
-    } else {
-      throw Exception('Failed to load Tips');
-    }*/
+  void updateUser(UserModel us) async {
+    String quer = 'UPDATE Usuario SET nivel = \'' +
+        us.getNivel +
+        '\' ptf1 = \'' +
+        us.getPtsF1.toString() +
+        '\' ptf2 = \'' +
+        us.getPtsF2.toString() +
+        '\' ptf3 = \'' +
+        us.getPtsF3.toString() +
+        '\' ptf4 = \'' +
+        us.getPtsF4.toString() +
+        '\' ptf5 = \'' +
+        us.getPtsF5.toString() +
+        '\' where id = \'' +
+        us.getId +
+        '\'';
+
+    print(quer);
+    final conn = await MySqlConnection.connect(ConnectionSettings(
+        host: 'sql10.freemysqlhosting.net',
+        port: 3306,
+        user: 'sql10449221',
+        db: 'sql10449221',
+        password: 'm3s8lRTXE8'));
+
+    await conn.query(quer);
   }
 
   List<UserModel> listToASingleUser(listUser) {

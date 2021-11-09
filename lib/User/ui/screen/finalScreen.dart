@@ -1,6 +1,10 @@
 //@dart=2.9
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/User/model/user_list.dart';
+import 'package:security_test_mobile/User/repository/user_fetch.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
 
@@ -10,8 +14,11 @@ class FinalScreen extends StatefulWidget {
 }
 
 class _FinalScreen extends State<FinalScreen> {
+  final _userFetch = UserFetch();
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserModel>(context);
+    _userFetch.updateUser(user);
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
