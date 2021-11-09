@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:security_test_mobile/Tip/model/tip.dart';
 import 'package:security_test_mobile/Tip/model/tip_list.dart';
-import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
 
 class TipScreen extends StatefulWidget {
@@ -32,15 +31,15 @@ class _TipScreen extends State<TipScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          GradientBack(height: null),
           ListView.builder(
             itemCount: tips.length,
             itemBuilder: (context, index) {
               return ListTile(
                 title: TitleHeader(
                   title: tips[index].tip,
-                  tamanio: 25.0,
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 15.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               );
             },

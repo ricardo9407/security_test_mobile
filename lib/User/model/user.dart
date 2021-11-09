@@ -2,8 +2,13 @@
 import 'package:flutter/material.dart';
 
 class UserModel with ChangeNotifier {
+  String id;
   String name;
   String email;
+  String idOrg;
+  String admin;
+  String nivel;
+  String subNivel;
   double ptsF1;
   double ptsF2;
   double ptsF3;
@@ -11,8 +16,13 @@ class UserModel with ChangeNotifier {
   double ptsF5;
 
   UserModel({
+    this.id,
     this.name,
     this.email,
+    this.idOrg,
+    this.admin,
+    this.nivel,
+    this.subNivel,
     this.ptsF1,
     this.ptsF2,
     this.ptsF3,
@@ -20,12 +30,32 @@ class UserModel with ChangeNotifier {
     this.ptsF5,
   });
 
+  String get getId {
+    return id;
+  }
+
   String get getUserName {
     return name;
   }
 
   String get getUserEmail {
     return email;
+  }
+
+  String get getIdOrg {
+    return idOrg;
+  }
+
+  String get getAdmin {
+    return admin;
+  }
+
+  String get getNivel {
+    return nivel;
+  }
+
+  String get getSubNivel {
+    return subNivel;
   }
 
   double get getPtsF1 {
@@ -48,6 +78,11 @@ class UserModel with ChangeNotifier {
     return ptsF5;
   }
 
+  set setId(String id) {
+    this.id = id;
+    notifyListeners();
+  }
+
   set setUserName(String name) {
     this.name = name;
     notifyListeners();
@@ -55,6 +90,26 @@ class UserModel with ChangeNotifier {
 
   set setUserEmail(String email) {
     this.email = email;
+    notifyListeners();
+  }
+
+  set setIdOrg(String idOrg) {
+    this.idOrg = idOrg;
+    notifyListeners();
+  }
+
+  set setAdmin(String admin) {
+    this.admin = admin;
+    notifyListeners();
+  }
+
+  set setNivel(String nivel) {
+    this.nivel = nivel;
+    notifyListeners();
+  }
+
+  set setSubNivel(String subNivel) {
+    this.subNivel = subNivel;
     notifyListeners();
   }
 

@@ -43,23 +43,18 @@ class _AnswersList extends State<AnswersList> {
                         .toStringAsFixed(5));
                 if (widget.index < 13) {
                   user.setPtsF1 = user.getPtsF1 + pts;
-                  print(user.getPtsF1);
                 } else {
                   if (widget.index < 24) {
                     user.setPtsF2 = user.getPtsF2 + pts;
-                    print(user.getPtsF2);
                   } else {
                     if (widget.index < 39) {
                       user.setPtsF3 = user.getPtsF3 + pts;
-                      print(user.getPtsF3);
                     } else {
                       if (widget.index < 55) {
                         user.setPtsF4 = user.getPtsF4 + pts;
-                        print(user.getPtsF4);
                       } else {
                         if (widget.index < 61) {
                           user.setPtsF5 = user.getPtsF5 + pts;
-                          print(user.getPtsF5);
                         }
                       }
                     }
@@ -80,23 +75,18 @@ class _AnswersList extends State<AnswersList> {
                         .toStringAsFixed(5));
                 if (widget.index < 13) {
                   user.setPtsF1 = user.getPtsF1 + pts;
-                  print(user.getPtsF1);
                 } else {
                   if (widget.index < 24) {
                     user.setPtsF2 = user.getPtsF2 + pts;
-                    print(user.getPtsF2);
                   } else {
                     if (widget.index < 39) {
                       user.setPtsF3 = user.getPtsF3 + pts;
-                      print(user.getPtsF3);
                     } else {
                       if (widget.index < 55) {
                         user.setPtsF4 = user.getPtsF4 + pts;
-                        print(user.getPtsF4);
                       } else {
                         if (widget.index < 61) {
                           user.setPtsF5 = user.getPtsF5 + pts;
-                          print(user.getPtsF5);
                         }
                       }
                     }
@@ -117,23 +107,18 @@ class _AnswersList extends State<AnswersList> {
                         .toStringAsFixed(5));
                 if (widget.index < 13) {
                   user.setPtsF1 = user.getPtsF1 + pts;
-                  print(user.getPtsF1);
                 } else {
                   if (widget.index < 24) {
                     user.setPtsF2 = user.getPtsF2 + pts;
-                    print(user.getPtsF2);
                   } else {
                     if (widget.index < 39) {
                       user.setPtsF3 = user.getPtsF3 + pts;
-                      print(user.getPtsF3);
                     } else {
                       if (widget.index < 55) {
                         user.setPtsF4 = user.getPtsF4 + pts;
-                        print(user.getPtsF4);
                       } else {
                         if (widget.index < 61) {
                           user.setPtsF5 = user.getPtsF5 + pts;
-                          print(user.getPtsF5);
                         }
                       }
                     }
@@ -154,23 +139,18 @@ class _AnswersList extends State<AnswersList> {
                         .toStringAsFixed(5));
                 if (widget.index < 13) {
                   user.setPtsF1 = user.getPtsF1 + pts;
-                  print(user.getPtsF1);
                 } else {
                   if (widget.index < 24) {
                     user.setPtsF2 = user.getPtsF2 + pts;
-                    print(user.getPtsF2);
                   } else {
                     if (widget.index < 39) {
                       user.setPtsF3 = user.getPtsF3 + pts;
-                      print(user.getPtsF3);
                     } else {
                       if (widget.index < 55) {
                         user.setPtsF4 = user.getPtsF4 + pts;
-                        print(user.getPtsF4);
                       } else {
                         if (widget.index < 61) {
                           user.setPtsF5 = user.getPtsF5 + pts;
-                          print(user.getPtsF5);
                         }
                       }
                     }

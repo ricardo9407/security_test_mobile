@@ -8,7 +8,7 @@ import 'package:security_test_mobile/Focus/repository/repository_focus.dart';
 import 'package:security_test_mobile/Question/model/question.dart';
 import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Question/repository/repository_question.dart';
-import 'package:security_test_mobile/Question/ui/screen/screen_question.dart';
+import 'package:security_test_mobile/User/ui/screen/focusScore.dart';
 
 class BuildList extends StatefulWidget {
   @override
@@ -130,7 +130,7 @@ class _BuildList extends State<BuildList> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ScreenQuestion(index: 0),
+              builder: (context) => FocusScore(index: 0, id: 'OCS'),
             ),
           );
         },

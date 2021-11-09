@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:security_test_mobile/Company/model/company.dart';
+import 'package:security_test_mobile/Company/model/company_list.dart';
 import 'package:security_test_mobile/Tip/ui/widget/buildListTip.dart';
 import 'package:security_test_mobile/User/model/user.dart';
-import 'package:security_test_mobile/Widget/gradient_back.dart';
+import 'package:security_test_mobile/User/model/user_list.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
 
 class Score extends StatefulWidget {
@@ -16,83 +18,53 @@ class _Score extends State<Score> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
+    final users = Provider.of<UserList>(context);
+    final company = Provider.of<CompanyList>(context);
 
-    String id = ' ';
+    List<UserModel> trabajadores = users.getUserss(user.getIdOrg, user.getId);
+    CompanyModel comp = company.getcompany(user.getIdOrg);
+
+    double xF1 = 0;
+    double xF2 = 0;
+    double xF3 = 0;
+    double xF4 = 0;
+    double xF5 = 0;
+    double xTotal = 0;
+
+    for (var i = 0; i < trabajadores.length; i++) {
+      xF1 = xF1 + trabajadores[i].ptsF1;
+      xF2 = xF2 + trabajadores[i].ptsF2;
+      xF3 = xF3 + trabajadores[i].ptsF3;
+      xF4 = xF4 + trabajadores[i].ptsF4;
+      xF5 = xF5 + trabajadores[i].ptsF5;
+    }
+
+    xF1 = xF1 / trabajadores.length;
+    xF2 = xF2 / trabajadores.length;
+    xF3 = xF3 / trabajadores.length;
+    xF4 = xF4 / trabajadores.length;
+    xF5 = xF5 / trabajadores.length;
+
+    xTotal = xF1 + xF2 + xF3 + xF4 + xF5;
+
     String nivel = ' ';
-    String subNivel = ' ';
-    double suma = user.getPtsF1 +
-        user.getPtsF2 +
-        user.getPtsF3 +
-        user.getPtsF4 +
-        user.getPtsF5;
+    String id;
 
-    if (suma < 2.5) {
+    if (xTotal < 2.5) {
       nivel = 'Cofre (Nivel 1)';
-      if (suma < 1.945) {
-        subNivel = "sub1";
-        id = "1.1";
-      } else {
-        if (suma >= 1.945 && suma < 1.975) {
-          subNivel = "sub2";
-          id = "1.2";
-        } else {
-          if (suma > 1.975) {
-            subNivel = "sub3";
-            id = "1.3";
-          }
-        }
-      }
+      id = '1';
     } else {
-      if (suma >= 2.5 && suma < 4) {
+      if (xTotal >= 2.5 && xTotal < 4) {
         nivel = 'Caja Fuerte (Nivel 2)';
-        if (suma < 2.995) {
-          subNivel = "sub1";
-          id = "2.1";
-        } else {
-          if (suma >= 2.995 && suma < 3.475) {
-            subNivel = "sub2";
-            id = "2.2";
-          } else {
-            if (suma > 3.475) {
-              subNivel = "sub3";
-              id = "2.3";
-            }
-          }
-        }
+        id = '2';
       } else {
-        if (suma >= 4 && suma < 5.5) {
+        if (xTotal >= 4 && xTotal < 5.5) {
           nivel = 'Bobeda (Nivel 3)';
-          if (suma < 4.495) {
-            subNivel = "sub1";
-            id = "3.1";
-          } else {
-            if (suma >= 4.495 && suma < 4.975) {
-              subNivel = "sub2";
-              id = "3.2";
-            } else {
-              if (suma > 4.975) {
-                subNivel = "sub3";
-                id = "3.3";
-              }
-            }
-          }
+          id = '3';
         } else {
-          if (suma >= 5.5 && suma < 7) {
+          if (xTotal >= 5.5 && xTotal < 7) {
             nivel = 'Bunker (Nivel 4)';
-            if (suma < 5.995) {
-              subNivel = "sub1";
-              id = "4.1";
-            } else {
-              if (suma >= 5.995 && suma < 6.475) {
-                subNivel = "sub2";
-                id = "4.2";
-              } else {
-                if (suma > 6.475) {
-                  subNivel = "sub3";
-                  id = "4.3";
-                }
-              }
-            }
+            id = '4';
           }
         }
       }
@@ -101,94 +73,153 @@ class _Score extends State<Score> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF4268D3),
-        title: Text('Puntos'),
+        title: Text('Datos de ' + comp.name),
       ),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          GradientBack(height: null),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ListView(
             children: <Widget>[
               Flexible(
                 child: TitleHeader(
-                  title: 'Puntaje Total: ' + suma.toStringAsFixed(5),
-                  tamanio: 30.0,
-                  padding: EdgeInsets.only(left: 20.0, right: 10.0),
+                  title:
+                      'Trabajadores total: ' + trabajadores.length.toString(),
+                  tamanio: 15.0,
+                  padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  TitleHeader(
+                    title: 'Resultado de cada trabajador: ',
+                    tamanio: 15.0,
+                    padding:
+                        EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                    color: Colors.black,
+                  ),
+                  DropdownButton<UserModel>(
+                    hint: Text(
+                      "Trabajador",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    iconEnabledColor: Colors.black,
+                    iconDisabledColor: Colors.black,
+                    items: trabajadores
+                        .map<DropdownMenuItem<UserModel>>((accountType) {
+                      return DropdownMenuItem<UserModel>(
+                        value: accountType,
+                        child: Text(accountType.id + " " + accountType.name),
+                      );
+                    }).toList(),
+                    onChanged: (opt) {
+                      showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text("Resultados."),
+                          content: Text("Este Trabajador quedó en el nivel " +
+                              opt.nivel +
+                              " y su puntaje total es de " +
+                              (opt.ptsF1 +
+                                      opt.ptsF2 +
+                                      opt.ptsF3 +
+                                      opt.ptsF4 +
+                                      opt.ptsF5)
+                                  .toStringAsFixed(4) +
+                              "."),
+                          actions: <Widget>[
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                  textStyle: const TextStyle(fontSize: 20)),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Aceptar'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              Flexible(
+                child: TitleHeader(
+                  title: 'Promedio Enfoque 1: ' +
+                      xF1.toStringAsFixed(4) +
+                      ' / 0.7',
+                  tamanio: 15.0,
+                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               Flexible(
                 child: TitleHeader(
-                  title: 'Nivel: ' + nivel,
-                  tamanio: 30.0,
+                  title: 'Promedio Enfoque 2: ' +
+                      xF2.toStringAsFixed(4) +
+                      ' / 1.4',
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               Flexible(
                 child: TitleHeader(
-                  title: 'Sub-Nivel: ' + subNivel,
-                  tamanio: 30.0,
+                  title: 'Promedio Enfoque 3: ' +
+                      xF3.toStringAsFixed(4) +
+                      ' / 1.75',
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               Flexible(
                 child: TitleHeader(
-                  title: 'Puntaje Enfoque 1: ' +
-                      user.getPtsF1.toStringAsFixed(4) +
-                      '/0.7 (' +
-                      ((user.getPtsF1 / 0.7) * 100).toStringAsFixed(1) +
-                      ' )',
-                  tamanio: 20.0,
+                  title: 'Promedio Enfoque 4: ' +
+                      xF4.toStringAsFixed(4) +
+                      ' / 2.1',
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               Flexible(
                 child: TitleHeader(
-                  title: 'Puntaje Enfoque 2: ' +
-                      user.getPtsF2.toStringAsFixed(4) +
-                      '/1.37 (' +
-                      ((user.getPtsF2 / 1.4) * 100).toStringAsFixed(1) +
-                      ' )',
-                  tamanio: 20.0,
+                  title: 'Promedio Enfoque 5: ' +
+                      xF5.toStringAsFixed(4) +
+                      ' / 1.05',
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               Flexible(
                 child: TitleHeader(
-                  title: 'Puntaje Enfoque 3: ' +
-                      user.getPtsF3.toStringAsFixed(4) +
-                      '/1.74 (' +
-                      ((user.getPtsF3 / 1.75) * 100).toStringAsFixed(1) +
-                      ' )',
-                  tamanio: 20.0,
+                  title: 'Promedio del puntaje total: ' +
+                      xTotal.toStringAsFixed(4) +
+                      ' / ' +
+                      ((xTotal / 7) * 100).toStringAsFixed(0) +
+                      '%',
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               Flexible(
                 child: TitleHeader(
-                  title: 'Puntaje Enfoque 4: ' +
-                      user.getPtsF4.toStringAsFixed(4) +
-                      '/2.09 (' +
-                      ((user.getPtsF4 / 2.1) * 100).toStringAsFixed(1) +
-                      ' )',
-                  tamanio: 20.0,
+                  title:
+                      'En base al promedio de los resultados de todos los usuarios, el nivel general es: ' +
+                          nivel,
+                  tamanio: 15.0,
                   padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                ),
-              ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Puntaje Enfoque 5: ' +
-                      user.getPtsF5.toStringAsFixed(4) +
-                      '/1.05 (' +
-                      ((user.getPtsF5 / 1.05) * 100).toStringAsFixed(1) +
-                      ' )',
-                  tamanio: 20.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                  color: Colors.black,
                 ),
               ),
               SizedBox(
-                height: 20.0,
+                height: 15.0,
               ),
               BuildListTip(id: id),
             ],

@@ -73,10 +73,6 @@ class _BuildListTip extends State<BuildListTip> {
       child: FloatingActionButton(
         onPressed: () {
           tip.setTip = tipList;
-          print(tip.getTips.length);
-          for (var i = 0; i < tip.getTips.length; i++) {
-            print(tip.getTips[i].tip);
-          }
           Navigator.push(
             context,
             MaterialPageRoute(

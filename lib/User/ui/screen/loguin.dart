@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/User/model/user_list.dart';
 import 'package:security_test_mobile/User/ui/screen/instructions.dart';
+import 'package:security_test_mobile/User/ui/screen/score.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/text_input.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
@@ -18,10 +19,12 @@ class _Loguin extends State<Loguin> {
   final controllerName = TextEditingController();
   final controllerEmail = TextEditingController();
 
+  var aux = UserModel();
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
-    bool _isValid = false;
+    final users = Provider.of<UserList>(context);
 
     return Scaffold(
       body: Stack(
@@ -36,6 +39,7 @@ class _Loguin extends State<Loguin> {
                   title: "Bienvenido a Ciberseguridad",
                   tamanio: 40.0,
                   padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  color: Colors.white,
                 ),
               ),
               Container(
@@ -66,19 +70,54 @@ class _Loguin extends State<Loguin> {
               ),
               FloatingActionButton(
                 onPressed: () {
-                  user.setUserName = controllerName.value.text;
-                  user.setUserEmail = controllerEmail.value.text;
-                  user.setPtsF1 = 0.0;
-                  user.setPtsF2 = 0.0;
-                  user.setPtsF3 = 0.0;
-                  user.setPtsF4 = 0.0;
-                  user.setPtsF5 = 0.0;
-                  _isValid = EmailValidator.validate(user.getUserEmail);
-                  if (user.getUserName.length >= 4 && _isValid == true) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Instructions(),
+                  aux = users.getUser(
+                      controllerName.value.text, controllerEmail.value.text);
+                  if (aux != null) {
+                    user.setId = aux.id;
+                    user.setUserName = aux.name;
+                    user.setUserEmail = aux.email;
+                    user.setIdOrg = aux.idOrg;
+                    user.setAdmin = aux.admin;
+                    user.setNivel = ' ';
+                    user.setSubNivel = ' ';
+                    user.setPtsF1 = 0.0;
+                    user.setPtsF2 = 0.0;
+                    user.setPtsF3 = 0.0;
+                    user.setPtsF4 = 0.0;
+                    user.setPtsF5 = 0.0;
+                    if (user.getAdmin == 'false') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Instructions(),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Score(),
+                        ),
+                      );
+                    }
+                  } else {
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text("Usuario no valido."),
+                        content: Text(
+                            "El usuario o correo ingresado no son validos."),
+                        actions: <Widget>[
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                textStyle: const TextStyle(fontSize: 20)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('Aceptar'),
+                          ),
+                        ],
                       ),
                     );
                   }

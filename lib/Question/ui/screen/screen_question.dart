@@ -6,8 +6,8 @@ import 'package:security_test_mobile/Focus/model/focus_list.dart';
 import 'package:security_test_mobile/Question/model/question_list.dart';
 import 'package:security_test_mobile/Question/ui/widget/header.dart';
 import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/User/ui/screen/finalScreen.dart';
 import 'package:security_test_mobile/User/ui/screen/focusScore.dart';
-import 'package:security_test_mobile/User/ui/screen/score.dart';
 import 'package:security_test_mobile/Widget/header-appbar.dart';
 
 // ignore: must_be_immutable
@@ -129,8 +129,7 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                       if (widget.index == 11 ||
                           widget.index == 22 ||
                           widget.index == 37 ||
-                          widget.index == 53 ||
-                          widget.index == 59) {
+                          widget.index == 53) {
                         widget.index++;
                         Navigator.push(
                           context,
@@ -157,13 +156,13 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                   ),
                 ],
               ),
-              HeaderAppBar()
+              HeaderAppBar(focus: focu)
             ],
           ),
         ),
       );
     } else {
-      return Score();
+      return FinalScreen();
     }
   }
 }

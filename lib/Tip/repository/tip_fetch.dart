@@ -14,25 +14,26 @@ class TipFetch with ChangeNotifier {
   Client client = Client();
 
   final _baseUrl =
-      'https://run.mocky.io/v3/b5cf2a93-5f27-45e5-be2b-6108a06d8b75';
+      'https://run.mocky.io/v3/41484906-04a6-4dc9-9e0b-59f2328135ea';
+  //'https://run.mocky.io/v3/b5cf2a93-5f27-45e5-be2b-6108a06d8b75';
 
   Future<List<TipModel>> fetchTip() async {
     final String url = _baseUrl;
     final response = await client.get(Uri.parse("$url"));
     if (response.statusCode == 200) {
-      return listToASingleQuestion(json.decode(response.body));
+      return listToASingleTip(json.decode(response.body));
     } else {
       throw Exception('Failed to load Tips');
     }
   }
 
-  List<TipModel> listToASingleQuestion(listQuestion) {
+  List<TipModel> listToASingleTip(listTip) {
     List<TipModel> aux = [];
-    var message = listQuestion;
-    message.forEach((question) {
+    var message = listTip;
+    message.forEach((tip) {
       aux.add(TipModel(
-        id: question['id'],
-        tip: question['consejo'],
+        id: tip['id'],
+        tip: tip['consejo'],
       ));
     });
     return aux;
