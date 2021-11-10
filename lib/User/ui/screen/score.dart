@@ -7,6 +7,7 @@ import 'package:security_test_mobile/Company/model/company_list.dart';
 import 'package:security_test_mobile/Tip/ui/widget/buildListTip.dart';
 import 'package:security_test_mobile/User/model/user.dart';
 import 'package:security_test_mobile/User/model/user_list.dart';
+import 'package:security_test_mobile/User/ui/screen/detailsScreen.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
 
 class Score extends StatefulWidget {
@@ -138,6 +139,20 @@ class _Score extends State<Score> {
                                   Navigator.of(context).pop();
                                 },
                                 child: Text('Aceptar'),
+                              ),
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                    textStyle: const TextStyle(fontSize: 20)),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailsScreen(user: opt),
+                                    ),
+                                  );
+                                },
+                                child: Text('Detalles'),
                               ),
                             ],
                           ),
