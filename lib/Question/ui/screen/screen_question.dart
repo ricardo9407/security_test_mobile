@@ -24,7 +24,7 @@ class ScreenQuestion extends StatefulWidget {
 }
 
 class _ScreenQuestionState extends State<ScreenQuestion> {
-  double character = 0;
+  double character = 1;
   double pts = 0;
 
   @override

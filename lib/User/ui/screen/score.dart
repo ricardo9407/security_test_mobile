@@ -80,16 +80,14 @@ class _Score extends State<Score> {
         children: <Widget>[
           ListView(
             children: <Widget>[
-              Flexible(
-                child: TitleHeader(
-                  title:
-                      'Trabajadores total: ' + trabajadores.length.toString(),
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title: 'Trabajadores total: ' + trabajadores.length.toString(),
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TitleHeader(
                     title: 'Resultado de cada trabajador: ',
@@ -98,125 +96,109 @@ class _Score extends State<Score> {
                         EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
                     color: Colors.black,
                   ),
-                  DropdownButton<UserModel>(
-                    hint: Text(
-                      "Trabajador",
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                    iconEnabledColor: Colors.black,
-                    iconDisabledColor: Colors.black,
-                    items: trabajadores
-                        .map<DropdownMenuItem<UserModel>>((accountType) {
-                      return DropdownMenuItem<UserModel>(
-                        value: accountType,
-                        child: Text(accountType.id + " " + accountType.name),
-                      );
-                    }).toList(),
-                    onChanged: (opt) {
-                      showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text("Resultados."),
-                          content: Text("Este Trabajador quedó en el nivel " +
-                              opt.nivel +
-                              " y su puntaje total es de " +
-                              (opt.ptsF1 +
-                                      opt.ptsF2 +
-                                      opt.ptsF3 +
-                                      opt.ptsF4 +
-                                      opt.ptsF5)
-                                  .toStringAsFixed(4) +
-                              "."),
-                          actions: <Widget>[
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                  textStyle: const TextStyle(fontSize: 20)),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Aceptar'),
-                            ),
-                          ],
+                  Container(
+                    padding: EdgeInsets.only(left: 20.0, right: 10.0),
+                    child: DropdownButton<UserModel>(
+                      hint: Text(
+                        "Trabajador",
+                        style: TextStyle(
+                          color: Colors.black,
                         ),
-                      );
-                    },
+                      ),
+                      iconEnabledColor: Colors.black,
+                      iconDisabledColor: Colors.black,
+                      items: trabajadores
+                          .map<DropdownMenuItem<UserModel>>((accountType) {
+                        return DropdownMenuItem<UserModel>(
+                          value: accountType,
+                          child: Text(accountType.id + " " + accountType.name),
+                        );
+                      }).toList(),
+                      onChanged: (opt) {
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text("Resultados."),
+                            content: Text("Este Trabajador quedó en el nivel " +
+                                opt.nivel +
+                                " y su puntaje total es de " +
+                                (opt.ptsF1 +
+                                        opt.ptsF2 +
+                                        opt.ptsF3 +
+                                        opt.ptsF4 +
+                                        opt.ptsF5)
+                                    .toStringAsFixed(4) +
+                                "."),
+                            actions: <Widget>[
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                    textStyle: const TextStyle(fontSize: 20)),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Aceptar'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Promedio Enfoque 1: ' +
-                      xF1.toStringAsFixed(4) +
-                      ' / 0.7',
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title:
+                    'Promedio Enfoque 1: ' + xF1.toStringAsFixed(4) + ' / 0.7',
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Promedio Enfoque 2: ' +
-                      xF2.toStringAsFixed(4) +
-                      ' / 1.4',
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title:
+                    'Promedio Enfoque 2: ' + xF2.toStringAsFixed(4) + ' / 1.4',
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Promedio Enfoque 3: ' +
-                      xF3.toStringAsFixed(4) +
-                      ' / 1.75',
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title:
+                    'Promedio Enfoque 3: ' + xF3.toStringAsFixed(4) + ' / 1.75',
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Promedio Enfoque 4: ' +
-                      xF4.toStringAsFixed(4) +
-                      ' / 2.1',
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title:
+                    'Promedio Enfoque 4: ' + xF4.toStringAsFixed(4) + ' / 2.1',
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Promedio Enfoque 5: ' +
-                      xF5.toStringAsFixed(4) +
-                      ' / 1.05',
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title:
+                    'Promedio Enfoque 5: ' + xF5.toStringAsFixed(4) + ' / 1.05',
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Flexible(
-                child: TitleHeader(
-                  title: 'Promedio del puntaje total: ' +
-                      xTotal.toStringAsFixed(4) +
-                      ' / ' +
-                      ((xTotal / 7) * 100).toStringAsFixed(0) +
-                      '%',
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title: 'Promedio del puntaje total: ' +
+                    xTotal.toStringAsFixed(4) +
+                    ' / ' +
+                    ((xTotal / 7) * 100).toStringAsFixed(0) +
+                    '%',
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
-              Flexible(
-                child: TitleHeader(
-                  title:
-                      'En base al promedio de los resultados de todos los usuarios, el nivel general es: ' +
-                          nivel,
-                  tamanio: 15.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
-                  color: Colors.black,
-                ),
+              TitleHeader(
+                title:
+                    'En base al promedio de los resultados de todos los usuarios, el nivel general es: ' +
+                        nivel,
+                tamanio: 15.0,
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                color: Colors.black,
               ),
               SizedBox(
                 height: 15.0,
