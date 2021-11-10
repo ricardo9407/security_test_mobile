@@ -14,7 +14,7 @@ class QuestionFetch with ChangeNotifier {
   Client client = Client();
 
   final _baseUrl =
-      'https://run.mocky.io/v3/ccaf60e7-41c1-43a1-8481-a352d6e39545';
+      'https://run.mocky.io/v3/1b8b79e3-cafd-4c2c-841e-53165381c559';
 
   Future<List<QuestionModel>> fetchQuestion() async {
     final String url = _baseUrl;

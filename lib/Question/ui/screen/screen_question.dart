@@ -13,10 +13,12 @@ import 'package:security_test_mobile/Widget/header-appbar.dart';
 // ignore: must_be_immutable
 class ScreenQuestion extends StatefulWidget {
   int index;
+  double aux;
 
   ScreenQuestion({
     Key key,
     @required this.index,
+    @required this.aux,
   });
 
   @override
@@ -104,55 +106,135 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                   SizedBox(
                     height: 70.0,
                   ),
-                  FloatingActionButton(
-                    onPressed: () {
-                      pts = character * quest.factorRespuesta * focu.factor;
-                      if (widget.index < 12) {
-                        user.setPtsF1 = user.getPtsF1 + pts;
-                      } else {
-                        if (widget.index < 23) {
-                          user.setPtsF2 = user.getPtsF2 + pts;
-                        } else {
-                          if (widget.index < 38) {
-                            user.setPtsF3 = user.getPtsF3 + pts;
-                          } else {
-                            if (widget.index < 54) {
-                              user.setPtsF4 = user.getPtsF4 + pts;
-                            } else {
-                              if (widget.index < 60) {
-                                user.setPtsF5 = user.getPtsF5 + pts;
+                  Stack(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10.0, right: 90.0),
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: FloatingActionButton(
+                            onPressed: () {
+                              pts = character *
+                                  quest.factorRespuesta *
+                                  focu.factor;
+                              widget.aux = pts;
+                              if (widget.index < 12) {
+                                user.setPtsF1 = user.getPtsF1 + pts;
+                              } else {
+                                if (widget.index < 23) {
+                                  user.setPtsF2 = user.getPtsF2 + pts;
+                                } else {
+                                  if (widget.index < 38) {
+                                    user.setPtsF3 = user.getPtsF3 + pts;
+                                  } else {
+                                    if (widget.index < 54) {
+                                      user.setPtsF4 = user.getPtsF4 + pts;
+                                    } else {
+                                      if (widget.index < 60) {
+                                        user.setPtsF5 = user.getPtsF5 + pts;
+                                      }
+                                    }
+                                  }
+                                }
                               }
-                            }
-                          }
-                        }
-                      }
-                      if (widget.index == 11 ||
-                          widget.index == 22 ||
-                          widget.index == 37 ||
-                          widget.index == 53) {
-                        widget.index++;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => FocusScore(
-                              id: focu.id,
-                              index: widget.index,
-                            ),
+                              if (widget.index == 11 ||
+                                  widget.index == 22 ||
+                                  widget.index == 37 ||
+                                  widget.index == 53) {
+                                widget.index++;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FocusScore(
+                                      id: focu.id,
+                                      index: widget.index,
+                                      aux: widget.aux,
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                widget.index++;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ScreenQuestion(
+                                      index: widget.index,
+                                      aux: widget.aux,
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Icon(Icons.navigate_next),
+                            backgroundColor: Colors.lightBlue,
+                            heroTag: null,
                           ),
-                        );
-                      } else {
-                        widget.index++;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                ScreenQuestion(index: widget.index),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 90.0, right: 10.0),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: FloatingActionButton(
+                            onPressed: () {
+                              if (widget.index < 13) {
+                                user.setPtsF1 = user.getPtsF1 - widget.aux;
+                              } else {
+                                if (widget.index < 24) {
+                                  user.setPtsF2 = user.getPtsF2 - widget.aux;
+                                } else {
+                                  if (widget.index < 39) {
+                                    user.setPtsF3 = user.getPtsF3 - widget.aux;
+                                  } else {
+                                    if (widget.index < 55) {
+                                      user.setPtsF4 =
+                                          user.getPtsF4 - widget.aux;
+                                    } else {
+                                      if (widget.index < 60) {
+                                        user.setPtsF5 =
+                                            user.getPtsF5 - widget.aux;
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                              if (widget.index == 0 ||
+                                  widget.index == 12 ||
+                                  widget.index == 23 ||
+                                  widget.index == 38) {
+                                /*if (widget.index != 0) {
+                                  widget.index--;
+                                }*/
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FocusScore(
+                                      id: focu.id,
+                                      index: widget.index,
+                                      aux: widget.aux,
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                widget.index--;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ScreenQuestion(
+                                      index: widget.index,
+                                      aux: widget.aux,
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Icon(Icons.navigate_before),
+                            backgroundColor: Colors.lightBlue,
+                            heroTag: null,
                           ),
-                        );
-                      }
-                    },
-                    child: Icon(Icons.navigate_next),
-                    backgroundColor: Colors.lightBlue,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

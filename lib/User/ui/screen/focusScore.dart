@@ -11,12 +11,14 @@ import 'package:security_test_mobile/Widget/title_header.dart';
 // ignore: must_be_immutable
 class FocusScore extends StatefulWidget {
   int index;
-  String id;
+  int id;
+  double aux;
 
   FocusScore({
     Key key,
     @required this.index,
     @required this.id,
+    @required this.aux,
   });
 
   @override
@@ -28,7 +30,7 @@ class _FocusScore extends State<FocusScore> {
   Widget build(BuildContext context) {
     final focus = Provider.of<FocusList>(context);
 
-    FocusModel foc = focus.getFocu(widget.id);
+    FocusModel foc = focus.getFocu(widget.id + 1);
 
     return WillPopScope(
       onWillPop: () async => false,
@@ -43,7 +45,10 @@ class _FocusScore extends State<FocusScore> {
               children: <Widget>[
                 Flexible(
                   child: TitleHeader(
-                    title: 'Vas a empezar el Enfoque: ' + foc.nameFocus,
+                    title: 'Vas a empezar el Enfoque ' +
+                        (widget.id + 1).toString() +
+                        ': ' +
+                        foc.nameFocus,
                     tamanio: 30.0,
                     padding:
                         EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
@@ -53,20 +58,59 @@ class _FocusScore extends State<FocusScore> {
                 SizedBox(
                   height: 50.0,
                 ),
-                Center(
-                  child: FloatingActionButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ScreenQuestion(index: widget.index),
+                Stack(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 10.0, right: 90.0),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ScreenQuestion(
+                                  index: widget.index,
+                                  aux: widget.aux,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Icon(Icons.navigate_next),
+                          backgroundColor: Colors.lightBlue,
+                          heroTag: null,
                         ),
-                      );
-                    },
-                    child: Icon(Icons.navigate_next),
-                    backgroundColor: Colors.lightBlue,
-                  ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 90.0, right: 10.0),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            if (widget.index == 12 ||
+                                widget.index == 23 ||
+                                widget.index == 38 ||
+                                widget.index == 54) {
+                              widget.index--;
+                            }
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ScreenQuestion(
+                                  index: widget.index,
+                                  aux: widget.aux,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Icon(Icons.navigate_before),
+                          backgroundColor: Colors.lightBlue,
+                          heroTag: null,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -76,3 +120,12 @@ class _FocusScore extends State<FocusScore> {
     );
   }
 }
+/*Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ScreenQuestion(
+                            index: widget.index,
+                            aux: widget.aux,
+                          ),
+                        ),
+                      );*/

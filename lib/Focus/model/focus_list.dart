@@ -15,7 +15,7 @@ class FocusList with ChangeNotifier {
     return focus;
   }
 
-  FocusModel getFocu(String index) {
+  FocusModel getFocu(int index) {
     var aux;
     for (var i = 0; i < this.focus.length; i++) {
       if (this.focus[i].id == index) {

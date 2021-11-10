@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class FocusModel with ChangeNotifier {
-  String id;
+  int id;
   String nameFocus;
   double factor;
 

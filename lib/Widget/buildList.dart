@@ -130,7 +130,11 @@ class _BuildList extends State<BuildList> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => FocusScore(index: 0, id: 'OCS'),
+              builder: (context) => FocusScore(
+                index: 0,
+                id: 0,
+                aux: 0.0,
+              ),
             ),
           );
         },

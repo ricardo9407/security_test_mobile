@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class QuestionModel with ChangeNotifier {
   String id;
-  String idFocus;
+  int idFocus;
   String header;
   double factorRespuesta;
 
