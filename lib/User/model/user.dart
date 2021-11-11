@@ -5,10 +5,10 @@ class UserModel with ChangeNotifier {
   String id;
   String name;
   String email;
+  String cargo;
   String idOrg;
   String admin;
   String nivel;
-  String subNivel;
   double ptsF1;
   double ptsF2;
   double ptsF3;
@@ -19,10 +19,10 @@ class UserModel with ChangeNotifier {
     this.id,
     this.name,
     this.email,
+    this.cargo,
     this.idOrg,
     this.admin,
     this.nivel,
-    this.subNivel,
     this.ptsF1,
     this.ptsF2,
     this.ptsF3,
@@ -42,6 +42,10 @@ class UserModel with ChangeNotifier {
     return email;
   }
 
+  String get getCargo {
+    return cargo;
+  }
+
   String get getIdOrg {
     return idOrg;
   }
@@ -52,10 +56,6 @@ class UserModel with ChangeNotifier {
 
   String get getNivel {
     return nivel;
-  }
-
-  String get getSubNivel {
-    return subNivel;
   }
 
   double get getPtsF1 {
@@ -93,6 +93,11 @@ class UserModel with ChangeNotifier {
     notifyListeners();
   }
 
+  set setCargo(String cargo) {
+    this.cargo = cargo;
+    notifyListeners();
+  }
+
   set setIdOrg(String idOrg) {
     this.idOrg = idOrg;
     notifyListeners();
@@ -105,11 +110,6 @@ class UserModel with ChangeNotifier {
 
   set setNivel(String nivel) {
     this.nivel = nivel;
-    notifyListeners();
-  }
-
-  set setSubNivel(String subNivel) {
-    this.subNivel = subNivel;
     notifyListeners();
   }
 

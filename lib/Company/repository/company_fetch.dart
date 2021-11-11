@@ -14,7 +14,7 @@ class CompanyFetch with ChangeNotifier {
   Client client = Client();
 
   final _baseUrl =
-      'https://run.mocky.io/v3/781ff358-170f-4f59-a1f6-9601538d0963';
+      'https://run.mocky.io/v3/e27fefc3-768e-4fd9-bf5a-4ebcbc073faa';
 
   Future<List<CompanyModel>> fetchCompany() async {
     final String url = _baseUrl;
@@ -33,6 +33,8 @@ class CompanyFetch with ChangeNotifier {
       aux.add(CompanyModel(
         id: company['id'],
         name: company['name'],
+        address: company['address'],
+        phone: company['phone'],
       ));
     });
     return aux;
