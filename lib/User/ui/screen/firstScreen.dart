@@ -23,7 +23,7 @@ class _FirstScreen extends State<FirstScreen> {
             children: <Widget>[
               Flexible(
                 child: TitleHeader(
-                  title: "Bienvenido a Ciberseguridad",
+                  title: "Bienvenido a SeguriApp",
                   tamanio: 40.0,
                   padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
                   color: Colors.white,
