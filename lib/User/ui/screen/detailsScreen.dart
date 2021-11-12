@@ -36,6 +36,14 @@ class _DetailsScreen extends State<DetailsScreen> {
           ),
           Flexible(
             child: TitleHeader(
+              title: 'Cargo: ' + widget.user.cargo,
+              tamanio: 15.0,
+              padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+              color: Colors.black,
+            ),
+          ),
+          Flexible(
+            child: TitleHeader(
               title: 'Puntaje Total: ' +
                   (widget.user.ptsF1 +
                           widget.user.ptsF2 +

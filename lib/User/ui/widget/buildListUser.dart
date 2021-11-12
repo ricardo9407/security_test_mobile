@@ -67,10 +67,10 @@ class _BuildListUser extends State<BuildListUser> {
         id: user[i].id,
         name: user[i].name,
         email: user[i].email,
+        cargo: user[i].cargo,
         idOrg: user[i].idOrg,
         admin: user[i].admin,
         nivel: user[i].nivel,
-        subNivel: user[i].subNivel,
         ptsF1: user[i].ptsF1,
         ptsF2: user[i].ptsF2,
         ptsF3: user[i].ptsF3,
@@ -117,6 +117,8 @@ class _BuildListUser extends State<BuildListUser> {
       com = CompanyModel(
         id: companies[i].id,
         name: companies[i].name,
+        address: companies[i].address,
+        phone: companies[i].phone,
       );
       companyList.add(com);
     }

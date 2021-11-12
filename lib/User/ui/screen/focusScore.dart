@@ -13,12 +13,14 @@ class FocusScore extends StatefulWidget {
   int index;
   int id;
   double aux;
+  List<double> ptss;
 
   FocusScore({
     Key key,
     @required this.index,
     @required this.id,
     @required this.aux,
+    @required this.ptss,
   });
 
   @override
@@ -72,6 +74,7 @@ class _FocusScore extends State<FocusScore> {
                                 builder: (context) => ScreenQuestion(
                                   index: widget.index,
                                   aux: widget.aux,
+                                  ptss: widget.ptss,
                                 ),
                               ),
                             );
@@ -100,6 +103,7 @@ class _FocusScore extends State<FocusScore> {
                                 builder: (context) => ScreenQuestion(
                                   index: widget.index,
                                   aux: widget.aux,
+                                  ptss: widget.ptss,
                                 ),
                               ),
                             );

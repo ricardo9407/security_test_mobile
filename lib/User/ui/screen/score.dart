@@ -22,7 +22,8 @@ class _Score extends State<Score> {
     final users = Provider.of<UserList>(context);
     final company = Provider.of<CompanyList>(context);
 
-    List<UserModel> trabajadores = users.getUserss(user.getIdOrg, user.getId);
+    List<UserModel> trabajadores =
+        users.getUsersCompany(user.getIdOrg, user.getId);
     CompanyModel comp = company.getcompany(user.getIdOrg);
 
     double xF1 = 0;
@@ -81,6 +82,42 @@ class _Score extends State<Score> {
         children: <Widget>[
           ListView(
             children: <Widget>[
+              Container(
+                alignment: Alignment.topRight,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 20)),
+                  onPressed: () {
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text("Resultados."),
+                        content: Text("Nombre Empresa: " +
+                            comp.name +
+                            ".\n\n" +
+                            "Direccion: " +
+                            comp.address +
+                            ".\n\n" +
+                            "Telefono: " +
+                            comp.phone +
+                            "."),
+                        actions: <Widget>[
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                textStyle: const TextStyle(fontSize: 20)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('Aceptar'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: Text('Detalles Empresa'),
+                ),
+              ),
               TitleHeader(
                 title: 'Trabajadores total: ' + trabajadores.length.toString(),
                 tamanio: 15.0,
@@ -112,7 +149,8 @@ class _Score extends State<Score> {
                           .map<DropdownMenuItem<UserModel>>((accountType) {
                         return DropdownMenuItem<UserModel>(
                           value: accountType,
-                          child: Text(accountType.id + " " + accountType.name),
+                          child:
+                              Text(accountType.id + " / " + accountType.name),
                         );
                       }).toList(),
                       onChanged: (opt) {

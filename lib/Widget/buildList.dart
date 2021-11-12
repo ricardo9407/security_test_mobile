@@ -134,6 +134,7 @@ class _BuildList extends State<BuildList> {
                 index: 0,
                 id: 0,
                 aux: 0.0,
+                ptss: [],
               ),
             ),
           );

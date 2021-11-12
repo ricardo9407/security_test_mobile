@@ -79,7 +79,6 @@ class _Loguin extends State<Loguin> {
                     user.setIdOrg = aux.idOrg;
                     user.setAdmin = aux.admin;
                     user.setNivel = ' ';
-                    user.setSubNivel = ' ';
                     user.setPtsF1 = 0.0;
                     user.setPtsF2 = 0.0;
                     user.setPtsF3 = 0.0;

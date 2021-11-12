@@ -20,7 +20,7 @@ class UserFetch with ChangeNotifier {
     );
 
     return listToASingleUser(await conn.query(
-        'SELECT EM.Nombre as idOrg, admin, name, US.nivel, ptsF1, ptsF2, ptsF3, ptsF4, ptsF5, email, id FROM Usuario US INNER JOIN Empresa EM ON EM.ID_Empresa = US.idOrg'));
+        'SELECT EM.Nombre as idOrg, admin, name, US.nivel, ptsF1, ptsF2, ptsF3, ptsF4, ptsF5, email, cargo, id FROM Usuario US INNER JOIN Empresa EM ON EM.ID_Empresa = US.idOrg'));
   }
 
   void updateUser(UserModel us) async {
@@ -61,10 +61,10 @@ class UserFetch with ChangeNotifier {
         id: user['id'],
         name: user['name'],
         email: user['email'],
+        cargo: user['cargo'],
         idOrg: user['idOrg'],
         admin: user['admin'],
         nivel: user['nivel'],
-        subNivel: user['subNivel'],
         ptsF1: user['ptsF1'],
         ptsF2: user['ptsF2'],
         ptsF3: user['ptsF3'],
