@@ -14,11 +14,13 @@ import 'package:security_test_mobile/Widget/header-appbar.dart';
 class ScreenQuestion extends StatefulWidget {
   int index;
   double aux;
+  List<double> ptss;
 
   ScreenQuestion({
     Key key,
     @required this.index,
     @required this.aux,
+    @required this.ptss,
   });
 
   @override
@@ -117,7 +119,7 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                               pts = character *
                                   quest.factorRespuesta *
                                   focu.factor;
-                              widget.aux = pts;
+                              widget.ptss.add(pts);
                               if (widget.index < 12) {
                                 user.setPtsF1 = user.getPtsF1 + pts;
                               } else {
@@ -149,6 +151,7 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                                       id: focu.id,
                                       index: widget.index,
                                       aux: widget.aux,
+                                      ptss: widget.ptss,
                                     ),
                                   ),
                                 );
@@ -160,6 +163,7 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                                     builder: (context) => ScreenQuestion(
                                       index: widget.index,
                                       aux: widget.aux,
+                                      ptss: widget.ptss,
                                     ),
                                   ),
                                 );
@@ -177,6 +181,8 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                           alignment: Alignment.bottomLeft,
                           child: FloatingActionButton(
                             onPressed: () {
+                              widget.aux = widget.ptss[widget.ptss.length - 1];
+                              widget.ptss.remove(widget.ptss.length - 1);
                               if (widget.index < 13) {
                                 user.setPtsF1 = user.getPtsF1 - widget.aux;
                               } else {
@@ -202,9 +208,6 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                                   widget.index == 12 ||
                                   widget.index == 23 ||
                                   widget.index == 38) {
-                                /*if (widget.index != 0) {
-                                  widget.index--;
-                                }*/
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -212,6 +215,7 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                                       id: focu.id,
                                       index: widget.index,
                                       aux: widget.aux,
+                                      ptss: widget.ptss,
                                     ),
                                   ),
                                 );
@@ -223,6 +227,7 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                                     builder: (context) => ScreenQuestion(
                                       index: widget.index,
                                       aux: widget.aux,
+                                      ptss: widget.ptss,
                                     ),
                                   ),
                                 );
