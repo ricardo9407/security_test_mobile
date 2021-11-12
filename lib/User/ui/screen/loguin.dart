@@ -26,6 +26,9 @@ class _Loguin extends State<Loguin> {
     final user = Provider.of<UserModel>(context);
     final users = Provider.of<UserList>(context);
 
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -37,13 +40,17 @@ class _Loguin extends State<Loguin> {
               Flexible(
                 child: TitleHeader(
                   title: "Bienvenido a SeguriApp",
-                  tamanio: 40.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  tamanio: screenHeight * 0.05,
+                  padding: EdgeInsets.only(
+                      top: screenHeight * 0.05, right: screenWidth * 0.02),
                   color: Colors.white,
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 50.0, left: 30.0, right: 50.0),
+                padding: EdgeInsets.only(
+                    top: screenHeight * 0.07,
+                    left: screenWidth * 0.07,
+                    right: screenWidth * 0.07),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -54,7 +61,7 @@ class _Loguin extends State<Loguin> {
                       controller: controllerName,
                     ),
                     SizedBox(
-                      height: 5.0,
+                      height: screenHeight * 0.007,
                     ),
                     TextInput(
                       hintText: "Email",
@@ -66,7 +73,7 @@ class _Loguin extends State<Loguin> {
                 ),
               ),
               SizedBox(
-                height: 50.0,
+                height: screenHeight * 0.07,
               ),
               FloatingActionButton(
                 onPressed: () {

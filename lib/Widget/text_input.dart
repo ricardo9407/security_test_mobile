@@ -20,14 +20,17 @@ class TextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-        padding: EdgeInsets.only(right: 20.0),
+        padding: EdgeInsets.only(right: screenWidth * 0.05),
         child: TextField(
           controller: controller,
           keyboardType: inputType,
           maxLines: maxLine,
           style: TextStyle(
-              fontSize: 15.0,
+              fontSize: screenHeight * 0.02,
               fontFamily: "Lato",
               color: Colors.black,
               fontWeight: FontWeight.bold),

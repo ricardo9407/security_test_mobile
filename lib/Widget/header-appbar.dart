@@ -16,12 +16,19 @@ class HeaderAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Stack(children: <Widget>[
-      GradientBack(height: 80.0),
+      GradientBack(height: screenHeight * 0.12),
       TitleHeader(
         title: focus.nameFocus,
-        tamanio: 22.5,
-        padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+        tamanio: screenHeight * 0.03,
+        padding: EdgeInsets.only(
+          top: screenHeight * 0.05,
+          left: screenWidth * 0.05,
+          right: screenWidth * 0.02,
+        ),
         color: Colors.white,
       ),
     ]);

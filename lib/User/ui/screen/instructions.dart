@@ -12,11 +12,14 @@ class Instructions extends StatefulWidget {
 
 class _Instructions extends State<Instructions> {
   String _intro =
-      'A continuación se presentarán una serie de preguntas, las cuales deberá responder escogiendo entre 4 alternativas. Una vez terminado el cuestionario se evaluaran los resultados y se entregaran consejos de ayuda para mejorar su conocimiento en seguridad de la información';
+      'A continuación, se presentarán una serie de preguntas, las cuales deberá responder escogiendo entre 4 alternativas. Una vez terminado el cuestionario se evaluaran los resultados y se entregaran consejos de ayuda para mejorar su conocimiento en seguridad de la información.';
   String _intromodel =
-      'Utilizaremos unas escala de medición basada en nuestro modelo de madurez el cual posee 4 niveles, siendo cofre el mas debil y bunker el mas fuerte. Segun su puntaje construido a partir de su interacción con la aplicación y nuestrs matriz de evaluacion se asignara un puntaje el cual representa su nivel en nuestro modelo.';
+      'Utilizaremos unas escala de medición basada en nuestro modelo de madurez, el cual posee 4 niveles, siendo cofré el mas debil y bunker el mas fuerte. Segun su puntaje construido a partir de su interacción con la aplicación y nuestra matriz de evaluación, se asignará un puntaje el cual representa su nivel en nuestro modelo.';
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -24,12 +27,12 @@ class _Instructions extends State<Instructions> {
           ListView(
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(top: 50.0),
+                padding: EdgeInsets.only(top: screenHeight * 0.04),
                 child: Text(
                   'Instrucciones',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 50.0,
+                    fontSize: screenHeight * 0.07,
                     fontWeight: FontWeight.w500,
                     fontStyle: FontStyle.italic,
                     color: Colors.white,
@@ -44,14 +47,15 @@ class _Instructions extends State<Instructions> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
-                width: 300,
-                height: 270,
+                padding: EdgeInsets.only(
+                    top: screenHeight * 0.04,
+                    left: screenWidth * 0.04,
+                    right: screenWidth * 0.05),
                 child: Text(
                   _intro,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.justify,
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: screenHeight * 0.03,
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.italic,
                     color: Colors.white,
@@ -66,18 +70,21 @@ class _Instructions extends State<Instructions> {
                 ),
               ),
               Container(
-                width: 250,
-                height: 250,
-                padding: EdgeInsets.only(top: 50.0),
+                width: screenWidth * 0.6,
+                height: screenHeight * 0.4,
+                padding: EdgeInsets.only(top: screenHeight * 0.04),
                 child: Image.asset('assets/ImagenModeloMadurez.png'),
               ),
               Container(
-                padding: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+                padding: EdgeInsets.only(
+                    top: screenHeight * 0.04,
+                    left: screenWidth * 0.04,
+                    right: screenWidth * 0.04),
                 child: Text(
                   _intromodel,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.justify,
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: screenHeight * 0.03,
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.italic,
                     color: Colors.white,
@@ -90,9 +97,6 @@ class _Instructions extends State<Instructions> {
                     ],
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 50.0,
               ),
               BuildList(),
             ],

@@ -19,6 +19,8 @@ class _FinalScreen extends State<FinalScreen> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
 
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     double total = 0;
     String nivel = '';
 
@@ -56,19 +58,28 @@ class _FinalScreen extends State<FinalScreen> {
                 child: TitleHeader(
                   title:
                       "Enhorabuena, has terminado de contestar el cuestionario. Gracias.",
-                  tamanio: 40.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  tamanio: screenHeight * 0.06,
+                  padding: EdgeInsets.only(
+                    top: screenHeight * 0.05,
+                    left: screenWidth * 0.1,
+                    right: screenWidth * 0.02,
+                  ),
                   color: Colors.white,
                 ),
               ),
-              FloatingActionButton(
-                onPressed: () {
-                  user.setNivel = nivel;
-                  _userFetch.updateUser(user);
-                  SystemNavigator.pop();
-                },
-                child: Icon(Icons.navigate_next),
-                backgroundColor: Colors.blue,
+              SizedBox(
+                height: screenHeight * 0.07,
+              ),
+              Center(
+                child: FloatingActionButton(
+                  onPressed: () {
+                    user.setNivel = nivel;
+                    _userFetch.updateUser(user);
+                    SystemNavigator.pop();
+                  },
+                  child: Icon(Icons.navigate_next),
+                  backgroundColor: Colors.blue,
+                ),
               ),
             ],
           ),

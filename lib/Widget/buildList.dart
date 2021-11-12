@@ -110,6 +110,8 @@ class _BuildList extends State<BuildList> {
 
   Widget buildListQuestion(List<QuestionModel> quest, QuestionList question,
       FocusList focu, BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     QuestionModel que;
     for (var i = 0; i < quest.length; i++) {
       que = QuestionModel(
@@ -120,27 +122,33 @@ class _BuildList extends State<BuildList> {
       );
       questionList.add(que);
     }
-    return Center(
-      child: FloatingActionButton(
-        onPressed: () {
-          focu.setFocus = focusList;
-          question.setQuestions = questionList;
-          print(focu.getFocus.length);
-          print(question.getQuestions.length);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => FocusScore(
-                index: 0,
-                id: 0,
-                aux: 0.0,
-                ptss: [],
+    return Container(
+      padding: EdgeInsets.only(
+        top: screenHeight * 0.04,
+        bottom: screenHeight * 0.03,
+      ),
+      child: Center(
+        child: FloatingActionButton(
+          onPressed: () {
+            focu.setFocus = focusList;
+            question.setQuestions = questionList;
+            print(focu.getFocus.length);
+            print(question.getQuestions.length);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FocusScore(
+                  index: 0,
+                  id: 0,
+                  aux: 0.0,
+                  ptss: [],
+                ),
               ),
-            ),
-          );
-        },
-        child: Icon(Icons.navigate_next),
-        backgroundColor: Colors.blue,
+            );
+          },
+          child: Icon(Icons.navigate_next),
+          backgroundColor: Colors.blue,
+        ),
       ),
     );
   }

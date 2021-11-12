@@ -22,6 +22,9 @@ class _Score extends State<Score> {
     final users = Provider.of<UserList>(context);
     final company = Provider.of<CompanyList>(context);
 
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     List<UserModel> trabajadores =
         users.getUsersCompany(user.getIdOrg, user.getId);
     CompanyModel comp = company.getcompany(user.getIdOrg);
@@ -92,11 +95,8 @@ class _Score extends State<Score> {
                       barrierDismissible: false,
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: Text("Resultados."),
-                        content: Text("Nombre Empresa: " +
-                            comp.name +
-                            ".\n\n" +
-                            "Direccion: " +
+                        title: Text(comp.name),
+                        content: Text("Direccion: " +
                             comp.address +
                             ".\n\n" +
                             "Telefono: " +
@@ -120,8 +120,12 @@ class _Score extends State<Score> {
               ),
               TitleHeader(
                 title: 'Trabajadores total: ' + trabajadores.length.toString(),
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.01,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               Column(
@@ -129,13 +133,19 @@ class _Score extends State<Score> {
                 children: <Widget>[
                   TitleHeader(
                     title: 'Resultado de cada trabajador: ',
-                    tamanio: 15.0,
-                    padding:
-                        EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                    tamanio: screenHeight * 0.02,
+                    padding: EdgeInsets.only(
+                      top: screenHeight * 0.03,
+                      left: screenWidth * 0.05,
+                      right: screenWidth * 0.02,
+                    ),
                     color: Colors.black,
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 20.0, right: 10.0),
+                    padding: EdgeInsets.only(
+                      left: screenWidth * 0.05,
+                      right: screenWidth * 0.02,
+                    ),
                     child: DropdownButton<UserModel>(
                       hint: Text(
                         "Trabajador",
@@ -203,36 +213,56 @@ class _Score extends State<Score> {
               TitleHeader(
                 title:
                     'Promedio Enfoque 1: ' + xF1.toStringAsFixed(4) + ' / 0.7',
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.03,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               TitleHeader(
                 title:
                     'Promedio Enfoque 2: ' + xF2.toStringAsFixed(4) + ' / 1.4',
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.05,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               TitleHeader(
                 title:
                     'Promedio Enfoque 3: ' + xF3.toStringAsFixed(4) + ' / 1.75',
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.05,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               TitleHeader(
                 title:
                     'Promedio Enfoque 4: ' + xF4.toStringAsFixed(4) + ' / 2.1',
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.05,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               TitleHeader(
                 title:
                     'Promedio Enfoque 5: ' + xF5.toStringAsFixed(4) + ' / 1.05',
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.05,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               TitleHeader(
@@ -241,20 +271,28 @@ class _Score extends State<Score> {
                     ' / ' +
                     ((xTotal / 7) * 100).toStringAsFixed(0) +
                     '%',
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.05,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               TitleHeader(
                 title:
                     'En base al promedio de los resultados de todos los usuarios, el nivel general es: ' +
                         nivel,
-                tamanio: 15.0,
-                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 10.0),
+                tamanio: screenHeight * 0.02,
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.03,
+                  left: screenWidth * 0.05,
+                  right: screenWidth * 0.02,
+                ),
                 color: Colors.black,
               ),
               SizedBox(
-                height: 15.0,
+                height: screenHeight * 0.03,
               ),
               BuildListTip(id: id),
             ],

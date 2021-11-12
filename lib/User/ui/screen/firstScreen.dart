@@ -13,6 +13,8 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreen extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -24,13 +26,14 @@ class _FirstScreen extends State<FirstScreen> {
               Flexible(
                 child: TitleHeader(
                   title: "Bienvenido a SeguriApp",
-                  tamanio: 40.0,
-                  padding: EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                  tamanio: screenHeight * 0.05,
+                  padding: EdgeInsets.only(
+                      top: screenHeight * 0.05, right: screenWidth * 0.02),
                   color: Colors.white,
                 ),
               ),
               SizedBox(
-                height: 50.0,
+                height: screenHeight * 0.07,
               ),
               BuildListUser(),
             ],

@@ -36,8 +36,13 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
     final user = Provider.of<UserModel>(context);
     final focus = Provider.of<FocusList>(context);
     final question = Provider.of<QuestionList>(context);
+
     var quest = question.getQuestion(widget.index);
     var focu = focus.getFocu(quest.idFocus);
+
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     if (widget.index < 60) {
       return WillPopScope(
         onWillPop: () async => false,
@@ -46,12 +51,12 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
             children: <Widget>[
               ListView(
                 children: <Widget>[
-                  SizedBox(height: 50.0),
+                  SizedBox(height: screenHeight * 0.07),
                   Header(
                     index: widget.index,
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 50.0),
+                    padding: EdgeInsets.only(top: screenHeight * 0.07),
                     child: Column(
                       children: <Widget>[
                         RadioListTile<double>(
@@ -106,12 +111,15 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                     ),
                   ),
                   SizedBox(
-                    height: 70.0,
+                    height: screenHeight * 0.1,
                   ),
                   Stack(
                     children: [
                       Container(
-                        padding: EdgeInsets.only(left: 10.0, right: 90.0),
+                        padding: EdgeInsets.only(
+                          left: screenWidth * 0.02,
+                          right: screenWidth * 0.2,
+                        ),
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: FloatingActionButton(
@@ -176,7 +184,10 @@ class _ScreenQuestionState extends State<ScreenQuestion> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(left: 90.0, right: 10.0),
+                        padding: EdgeInsets.only(
+                          left: screenWidth * 0.2,
+                          right: screenWidth * 0.02,
+                        ),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: FloatingActionButton(

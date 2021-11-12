@@ -32,6 +32,9 @@ class _FocusScore extends State<FocusScore> {
   Widget build(BuildContext context) {
     final focus = Provider.of<FocusList>(context);
 
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     FocusModel foc = focus.getFocu(widget.id + 1);
 
     return WillPopScope(
@@ -51,71 +54,19 @@ class _FocusScore extends State<FocusScore> {
                         (widget.id + 1).toString() +
                         ': ' +
                         foc.nameFocus,
-                    tamanio: 30.0,
-                    padding:
-                        EdgeInsets.only(top: 35.0, left: 40.0, right: 10.0),
+                    tamanio: screenHeight * 0.04,
+                    padding: EdgeInsets.only(
+                      top: screenHeight * 0.05,
+                      left: screenWidth * 0.1,
+                      right: screenWidth * 0.02,
+                    ),
                     color: Colors.white,
                   ),
                 ),
                 SizedBox(
-                  height: 50.0,
+                  height: screenHeight * 0.07,
                 ),
-                Stack(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(left: 10.0, right: 90.0),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: FloatingActionButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ScreenQuestion(
-                                  index: widget.index,
-                                  aux: widget.aux,
-                                  ptss: widget.ptss,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Icon(Icons.navigate_next),
-                          backgroundColor: Colors.lightBlue,
-                          heroTag: null,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 90.0, right: 10.0),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: FloatingActionButton(
-                          onPressed: () {
-                            if (widget.index == 12 ||
-                                widget.index == 23 ||
-                                widget.index == 38 ||
-                                widget.index == 54) {
-                              widget.index--;
-                            }
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ScreenQuestion(
-                                  index: widget.index,
-                                  aux: widget.aux,
-                                  ptss: widget.ptss,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Icon(Icons.navigate_before),
-                          backgroundColor: Colors.lightBlue,
-                          heroTag: null,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                buildButton(context, widget.index, widget.aux, widget.ptss)
               ],
             ),
           ],
@@ -124,12 +75,91 @@ class _FocusScore extends State<FocusScore> {
     );
   }
 }
-/*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ScreenQuestion(
-                            index: widget.index,
-                            aux: widget.aux,
-                          ),
-                        ),
-                      );*/
+
+Widget buildButton(
+    BuildContext context, int index, double aux, List<double> ptss) {
+  double screenWidth = MediaQuery.of(context).size.width;
+
+  if (index != 0) {
+    return Stack(
+      children: [
+        Container(
+          padding: EdgeInsets.only(
+            left: screenWidth * 0.02,
+            right: screenWidth * 0.2,
+          ),
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScreenQuestion(
+                      index: index,
+                      aux: aux,
+                      ptss: ptss,
+                    ),
+                  ),
+                );
+              },
+              child: Icon(Icons.navigate_next),
+              backgroundColor: Colors.lightBlue,
+              heroTag: null,
+            ),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(
+            left: screenWidth * 0.2,
+            right: screenWidth * 0.02,
+          ),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: FloatingActionButton(
+              onPressed: () {
+                if (index == 12 || index == 23 || index == 38 || index == 54) {
+                  index--;
+                }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScreenQuestion(
+                      index: index,
+                      aux: aux,
+                      ptss: ptss,
+                    ),
+                  ),
+                );
+              },
+              child: Icon(Icons.navigate_before),
+              backgroundColor: Colors.lightBlue,
+              heroTag: null,
+            ),
+          ),
+        ),
+      ],
+    );
+  } else {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ScreenQuestion(
+                index: index,
+                aux: aux,
+                ptss: ptss,
+              ),
+            ),
+          );
+        },
+        child: Icon(Icons.navigate_next),
+        backgroundColor: Colors.lightBlue,
+        heroTag: null,
+      ),
+    );
+  }
+}

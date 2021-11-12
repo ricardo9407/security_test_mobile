@@ -15,13 +15,21 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final question = Provider.of<QuestionList>(context);
+
     var quest = question.getQuestion(index);
+
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      padding: EdgeInsets.only(top: 70.0, left: 30.0),
+      padding: EdgeInsets.only(
+        top: screenHeight * 0.1,
+        left: screenWidth * 0.07,
+      ),
       child: Text(
         quest.id + '.' + '  ' + quest.header,
         style: TextStyle(
-          fontSize: 20.0,
+          fontSize: screenHeight * 0.03,
           fontFamily: "Lato",
           fontWeight: FontWeight.w500,
         ),
