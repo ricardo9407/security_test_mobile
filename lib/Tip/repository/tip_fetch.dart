@@ -14,9 +14,7 @@ class TipFetch with ChangeNotifier {
   Client client = Client();
 
   final _baseUrl =
-      'https://run.mocky.io/v3/a6df1cb9-ba3a-4ed4-8724-fbd3a2ba1c1e';
-  //'https://run.mocky.io/v3/41484906-04a6-4dc9-9e0b-59f2328135ea';
-  //'https://run.mocky.io/v3/b5cf2a93-5f27-45e5-be2b-6108a06d8b75';
+      'https://run.mocky.io/v3/206fe9e8-5ab8-49d2-bb3d-5e1d2445573f';
 
   Future<List<TipModel>> fetchTip() async {
     final String url = _baseUrl;
