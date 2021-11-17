@@ -294,7 +294,7 @@ class _Score extends State<Score> {
               SizedBox(
                 height: screenHeight * 0.03,
               ),
-              BuildListTip(id: id),
+              BuildListTip(id: id, boolean: false),
             ],
           ),
         ],

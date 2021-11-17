@@ -5,14 +5,20 @@ import 'package:provider/provider.dart';
 import 'package:security_test_mobile/Tip/model/tip.dart';
 import 'package:security_test_mobile/Tip/model/tip_list.dart';
 import 'package:security_test_mobile/Tip/repository/repository_tip.dart';
+import 'package:security_test_mobile/User/model/user.dart';
+import 'package:security_test_mobile/User/repository/user_fetch.dart';
 import 'package:security_test_mobile/User/ui/screen/tip_screen.dart';
 
 class BuildListTip extends StatefulWidget {
   final String id;
+  final bool boolean;
+  final String nivel;
 
   BuildListTip({
     Key key,
-    this.id,
+    @required this.id,
+    @required this.boolean,
+    this.nivel,
   });
 
   @override
@@ -21,7 +27,7 @@ class BuildListTip extends StatefulWidget {
 
 class _BuildListTip extends State<BuildListTip> {
   final trep = RepositoryTip();
-
+  final _userFetch = UserFetch();
   List<TipModel> tipList = [];
 
   @override
@@ -61,6 +67,7 @@ class _BuildListTip extends State<BuildListTip> {
   }
 
   Widget buildListTip(List<TipModel> tips, TipList tip, context) {
+    final user = Provider.of<UserModel>(context);
     TipModel aux;
     for (var i = 0; i < tips.length; i++) {
       aux = TipModel(
@@ -72,6 +79,10 @@ class _BuildListTip extends State<BuildListTip> {
     return Center(
       child: FloatingActionButton(
         onPressed: () {
+          if (widget.boolean == true) {
+            user.setNivel = widget.nivel;
+            _userFetch.updateUser(user);
+          }
           tip.setTip = tipList;
           Navigator.push(
             context,

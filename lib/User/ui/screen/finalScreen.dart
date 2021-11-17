@@ -1,10 +1,9 @@
 //@dart=2.9
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:security_test_mobile/Tip/ui/widget/buildListTip.dart';
 import 'package:security_test_mobile/User/model/user.dart';
-import 'package:security_test_mobile/User/repository/user_fetch.dart';
 import 'package:security_test_mobile/Widget/gradient_back.dart';
 import 'package:security_test_mobile/Widget/title_header.dart';
 
@@ -14,7 +13,6 @@ class FinalScreen extends StatefulWidget {
 }
 
 class _FinalScreen extends State<FinalScreen> {
-  final _userFetch = UserFetch();
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserModel>(context);
@@ -22,7 +20,7 @@ class _FinalScreen extends State<FinalScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     double total = 0;
-    String nivel = '';
+    String nivel = ' ';
 
     total = user.getPtsF1 +
         user.getPtsF2 +
@@ -70,17 +68,7 @@ class _FinalScreen extends State<FinalScreen> {
               SizedBox(
                 height: screenHeight * 0.07,
               ),
-              Center(
-                child: FloatingActionButton(
-                  onPressed: () {
-                    user.setNivel = nivel;
-                    _userFetch.updateUser(user);
-                    SystemNavigator.pop();
-                  },
-                  child: Icon(Icons.navigate_next),
-                  backgroundColor: Colors.blue,
-                ),
-              ),
+              BuildListTip(id: "5", boolean: true, nivel: nivel),
             ],
           ),
         ],

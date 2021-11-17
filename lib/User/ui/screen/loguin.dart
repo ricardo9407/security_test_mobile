@@ -36,13 +36,16 @@ class _Loguin extends State<Loguin> {
           GradientBack(height: null),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Flexible(
                 child: TitleHeader(
                   title: "Bienvenido a SeguriApp",
                   tamanio: screenHeight * 0.05,
                   padding: EdgeInsets.only(
-                      top: screenHeight * 0.05, right: screenWidth * 0.02),
+                    top: screenHeight * 0.05,
+                    right: screenWidth * 0.07,
+                  ),
                   color: Colors.white,
                 ),
               ),
