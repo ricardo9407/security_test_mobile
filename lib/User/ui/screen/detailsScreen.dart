@@ -29,124 +29,106 @@ class _DetailsScreen extends State<DetailsScreen> {
       ),
       body: ListView(
         children: <Widget>[
-          Flexible(
-            child: TitleHeader(
-              title: 'Nombre: ' + widget.user.name,
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Nombre: ' + widget.user.name,
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Cargo: ' + widget.user.cargo,
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Cargo: ' + widget.user.cargo,
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Puntaje Total: ' +
-                  (widget.user.ptsF1 +
-                          widget.user.ptsF2 +
-                          widget.user.ptsF3 +
-                          widget.user.ptsF4 +
-                          widget.user.ptsF5)
-                      .toString(),
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Puntaje Total: ' +
+                (widget.user.ptsF1 +
+                        widget.user.ptsF2 +
+                        widget.user.ptsF3 +
+                        widget.user.ptsF4 +
+                        widget.user.ptsF5)
+                    .toString(),
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Nivel: ' + widget.user.nivel,
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Nivel: ' + widget.user.nivel,
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Puntaje enfoque Organización, su contexto y seguridad: ' +
-                  widget.user.ptsF1.toStringAsFixed(4),
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Puntaje enfoque Organización, su contexto y seguridad: ' +
+                widget.user.ptsF1.toStringAsFixed(4),
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Puntaje enfoque Planificación y soporte: ' +
-                  widget.user.ptsF2.toStringAsFixed(4),
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Puntaje enfoque Planificación y soporte: ' +
+                widget.user.ptsF2.toStringAsFixed(4),
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Puntaje enfoque Evaluación de operación y mejora: ' +
-                  widget.user.ptsF3.toStringAsFixed(4),
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Puntaje enfoque Evaluación de operación y mejora: ' +
+                widget.user.ptsF3.toStringAsFixed(4),
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Puntaje enfoque Seguridad y controles: ' +
-                  widget.user.ptsF4.toStringAsFixed(4),
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Puntaje enfoque Seguridad y controles: ' +
+                widget.user.ptsF4.toStringAsFixed(4),
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
-          Flexible(
-            child: TitleHeader(
-              title: 'Puntaje enfoque Gestión y cumplimiento: ' +
-                  widget.user.ptsF5.toStringAsFixed(4),
-              tamanio: screenHeight * 0.02,
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.05,
-                left: screenWidth * 0.05,
-                right: screenWidth * 0.02,
-              ),
-              color: Colors.black,
+          TitleHeader(
+            title: 'Puntaje enfoque Gestión y cumplimiento: ' +
+                widget.user.ptsF5.toStringAsFixed(4),
+            tamanio: screenHeight * 0.02,
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.05,
+              left: screenWidth * 0.05,
+              right: screenWidth * 0.02,
             ),
+            color: Colors.black,
           ),
         ],
       ),

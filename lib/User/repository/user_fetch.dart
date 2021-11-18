@@ -7,6 +7,7 @@ import 'package:security_test_mobile/User/model/user.dart';
 
 String error;
 List<UserModel> message = [];
+List<UserModel> aux = [];
 
 class UserFetch with ChangeNotifier {
   Future<List<UserModel>> fetchUser() async {
@@ -19,8 +20,10 @@ class UserFetch with ChangeNotifier {
           password: 'm3s8lRTXE8'),
     );
 
-    return listToASingleUser(await conn.query(
+    aux = listToASingleUser(await conn.query(
         'SELECT EM.Nombre as idOrg, admin, name, US.nivel, ptsF1, ptsF2, ptsF3, ptsF4, ptsF5, email, cargo, id FROM Usuario US INNER JOIN Empresa EM ON EM.ID_Empresa = US.idOrg'));
+    conn.close();
+    return aux;
   }
 
   void updateUser(UserModel us) async {
@@ -51,6 +54,7 @@ class UserFetch with ChangeNotifier {
           password: 'm3s8lRTXE8'),
     );
     await conn.query(quer);
+    conn.close();
   }
 
   List<UserModel> listToASingleUser(listUser) {

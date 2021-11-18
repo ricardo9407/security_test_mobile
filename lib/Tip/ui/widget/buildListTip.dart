@@ -69,12 +69,14 @@ class _BuildListTip extends State<BuildListTip> {
   Widget buildListTip(List<TipModel> tips, TipList tip, context) {
     final user = Provider.of<UserModel>(context);
     TipModel aux;
-    for (var i = 0; i < tips.length; i++) {
-      aux = TipModel(
-        id: tips[i].id,
-        tip: tips[i].tip,
-      );
-      tipList.add(aux);
+    if (tipList.length == 0 || tipList == null) {
+      for (var i = 0; i < tips.length; i++) {
+        aux = TipModel(
+          id: tips[i].id,
+          tip: tips[i].tip,
+        );
+        tipList.add(aux);
+      }
     }
     return Center(
       child: FloatingActionButton(

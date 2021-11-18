@@ -62,22 +62,24 @@ class _BuildListUser extends State<BuildListUser> {
   Widget buildListUser(List<UserModel> user, CompanyList company,
       UserList users, BuildContext context) {
     UserModel us;
-    for (var i = 0; i < user.length; i++) {
-      us = UserModel(
-        id: user[i].id,
-        name: user[i].name,
-        email: user[i].email,
-        cargo: user[i].cargo,
-        idOrg: user[i].idOrg,
-        admin: user[i].admin,
-        nivel: user[i].nivel,
-        ptsF1: user[i].ptsF1,
-        ptsF2: user[i].ptsF2,
-        ptsF3: user[i].ptsF3,
-        ptsF4: user[i].ptsF4,
-        ptsF5: user[i].ptsF5,
-      );
-      userList.add(us);
+    if (userList.length == 0 || userList == null) {
+      for (var i = 0; i < user.length; i++) {
+        us = UserModel(
+          id: user[i].id,
+          name: user[i].name,
+          email: user[i].email,
+          cargo: user[i].cargo,
+          idOrg: user[i].idOrg,
+          admin: user[i].admin,
+          nivel: user[i].nivel,
+          ptsF1: user[i].ptsF1,
+          ptsF2: user[i].ptsF2,
+          ptsF3: user[i].ptsF3,
+          ptsF4: user[i].ptsF4,
+          ptsF5: user[i].ptsF5,
+        );
+        userList.add(us);
+      }
     }
     return buildList(company, users, context);
   }
@@ -113,14 +115,16 @@ class _BuildListUser extends State<BuildListUser> {
   Widget buildListCompany(List<CompanyModel> companies, CompanyList company,
       UserList users, BuildContext context) {
     CompanyModel com;
-    for (var i = 0; i < companies.length; i++) {
-      com = CompanyModel(
-        id: companies[i].id,
-        name: companies[i].name,
-        address: companies[i].address,
-        phone: companies[i].phone,
-      );
-      companyList.add(com);
+    if (companyList.length == 0 || companyList == null) {
+      for (var i = 0; i < companies.length; i++) {
+        com = CompanyModel(
+          id: companies[i].id,
+          name: companies[i].name,
+          address: companies[i].address,
+          phone: companies[i].phone,
+        );
+        companyList.add(com);
+      }
     }
     return Center(
       child: FloatingActionButton(
