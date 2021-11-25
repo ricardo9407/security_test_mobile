@@ -38,7 +38,7 @@ class _FinalScreen extends State<FinalScreen> {
         nivel = 'Caja Fuerte (Nivel 2)';
       } else {
         if (total >= 4 && total < 5.5) {
-          nivel = 'Bobeda (Nivel 3)';
+          nivel = 'Bóveda (Nivel 3)';
         } else {
           if (total >= 5.5 && total < 7) {
             nivel = 'Bunker (Nivel 4)';

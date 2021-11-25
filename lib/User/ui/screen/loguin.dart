@@ -58,7 +58,7 @@ class _Loguin extends State<Loguin> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     TextInput(
-                      hintText: "Name",
+                      hintText: "Nombre",
                       inputType: null,
                       maxLine: 1,
                       controller: controllerName,
@@ -67,7 +67,7 @@ class _Loguin extends State<Loguin> {
                       height: screenHeight * 0.007,
                     ),
                     TextInput(
-                      hintText: "Email",
+                      hintText: "Correo",
                       inputType: null,
                       maxLine: 1,
                       controller: controllerEmail,
@@ -116,7 +116,7 @@ class _Loguin extends State<Loguin> {
                       builder: (context) => AlertDialog(
                         title: Text("Usuario no valido."),
                         content: Text(
-                            "El usuario o correo ingresado no son validos."),
+                            "El usuario o correo ingresado no son válidos."),
                         actions: <Widget>[
                           TextButton(
                             style: TextButton.styleFrom(

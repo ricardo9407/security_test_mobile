@@ -12,9 +12,9 @@ class Instructions extends StatefulWidget {
 
 class _Instructions extends State<Instructions> {
   String _intro =
-      'A continuación, se presentarán una serie de preguntas, las cuales deberá responder escogiendo entre 4 alternativas. Una vez terminado el cuestionario se evaluaran los resultados y se entregaran consejos de ayuda para mejorar su conocimiento en seguridad de la información.';
+      'A continuación, se presentarán una serie de preguntas, las cuales deberá responder escogiendo entre 4 alternativas. Una vez terminado el cuestionario se evaluarán los resultados y se entregarán consejos de ayuda para mejorar su conocimiento en seguridad de la información.';
   String _intromodel =
-      'Utilizaremos unas escala de medición basada en nuestro modelo de madurez, el cual posee 4 niveles, siendo cofré el mas debil y bunker el mas fuerte. Segun su puntaje construido a partir de su interacción con la aplicación y nuestra matriz de evaluación, se asignará un puntaje el cual representa su nivel en nuestro modelo.';
+      'Utilizaremos una escala de medición basada en nuestro modelo de madurez, el cual posee 4 niveles, siendo cofre el más débil y bunker el más fuerte. Según su puntaje, construido a partir de su interacción con la aplicación y nuestra matriz de evaluación, se asignará un puntaje el cual representa su nivel en nuestro modelo.';
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;

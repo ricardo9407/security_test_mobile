@@ -64,7 +64,7 @@ class _Score extends State<Score> {
         id = '2';
       } else {
         if (xTotal >= 4 && xTotal < 5.5) {
-          nivel = 'Bobeda (Nivel 3)';
+          nivel = 'Bóveda (Nivel 3)';
           id = '3';
         } else {
           if (xTotal >= 5.5 && xTotal < 7) {
@@ -96,10 +96,10 @@ class _Score extends State<Score> {
                       context: context,
                       builder: (context) => AlertDialog(
                         title: Text(comp.name),
-                        content: Text("Direccion: " +
+                        content: Text("Dirección: " +
                             comp.address +
                             ".\n\n" +
-                            "Telefono: " +
+                            "Teléfono: " +
                             comp.phone +
                             "."),
                         actions: <Widget>[
