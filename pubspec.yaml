@@ -81,7 +81,7 @@ flutter:
   assets:
     - assets/focus.json
     - assets/questions.json
-    - ImagenModeloMadurez.png
+    - ImagenModeloMadurez.jpg
   fonts:
     - family: Lato
       fonts:

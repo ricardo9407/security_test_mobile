@@ -73,7 +73,7 @@ class _Instructions extends State<Instructions> {
                 width: screenWidth * 0.6,
                 height: screenHeight * 0.4,
                 padding: EdgeInsets.only(top: screenHeight * 0.04),
-                child: Image.asset('assets/ImagenModeloMadurez.png'),
+                child: Image.asset('assets/ImagenModeloMadurez.jpg'),
               ),
               Container(
                 padding: EdgeInsets.only(

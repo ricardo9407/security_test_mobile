@@ -25,8 +25,7 @@ class _Score extends State<Score> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    List<UserModel> trabajadores =
-        users.getUsersCompany(user.getIdOrg, user.getId);
+    List<UserModel> trabajadores = users.getUsersCompany(user.getIdOrg);
     CompanyModel comp = company.getcompany(user.getIdOrg);
 
     double xF1 = 0;

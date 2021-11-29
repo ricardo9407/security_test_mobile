@@ -24,7 +24,7 @@ class UserList with ChangeNotifier {
     return null;
   }
 
-  List<UserModel> getUsersCompany(String _idOrg, String _id) {
+  List<UserModel> getUsersCompany(String _idOrg) {
     var aux;
     List<UserModel> aux2 = [];
     for (var i = 0; i < this.users.length; i++) {
